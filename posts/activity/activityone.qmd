@@ -7,7 +7,7 @@ date: "2024-11-06"
 
 Title: CaddySense: AI-Powered Golf Performance Assistant
 
-The title of my project if CaddySense: AI-Powered Golf Performance Assistant. This name combines two main ideas, a caddy, which represents personalized on course guidance, and sense, which represents intelligence and insight driven by local AI and data analysis.
+The title of my project if CaddySense: AI-Powered Golf Performance Assistant. This name is combining two main ideas, a caddy, which represents personalized on course guidance, and sense, which represents intelligence and insight driven by local AI and data analysis.
 
 CaddySense is currently a python based system that is both using local data storage, visualization, and a natural language processor in order to deliver intelligent insights for golfers. It also has a built in AI assistant that helps players understand which exact parts of their game most affect their scores and how to improve them.
 
