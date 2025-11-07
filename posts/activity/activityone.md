@@ -13,7 +13,7 @@ CaddySense is currently a python based system that is both using local data stor
 
 The title overall, uses three main themes that go along with my project:
 
-- Personalization: My tool adapts feedback to each player's strengths and weaknesses, kind of how a real caddy is able to offer advice based on golfer's tendencies.
+- Personalization: My tool is adapting feedback to each player's strengths and weaknesses, kind of how a real caddy is able to offer advice based on golfer's tendencies.
 - AI Empowerment: The tool also uses machine intelligence to analyze and communicate complex patterns in the player data.
 - Practical Utility: The tool does not just predict outcomes, it also helps golfers make smarter decisions around the course and helps them develop skills.
 
