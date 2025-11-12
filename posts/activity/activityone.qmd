@@ -3,7 +3,7 @@ title: "Activity First post"
 date: "2024-11-06"
 ---
 
-## Stating and Explaining the Title of my Senior Comp Project
+Stating and Explaining the Title of my Senior Comp Project
 
 Title: CaddySense: AI-Powered Golf Performance Assistant
 

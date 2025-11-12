@@ -1,0 +1,53 @@
+---
+title: "Activity Second post"
+date: "2024-11-08"
+---
+
+Outline and Justifications for Chapter One: Introduction
+
+Title: Chapter One: Introducing CaddySense: Motivations, Context, and Ethical Foundations
+
+The first chapter on my thesis introduces CaddySense: Ai-Powered Golf Performance Assistant, which provides the motivation, goals, and broader implications behind the project. The main goal of chapter one it to clearly establish why this project matters in the means of both technically, and socially. Its also about how to situate it with conversation about AI in sports analytics and personalized meaning and coaching. 
+
+
+Outline for Chapter One:
+
+1.1 Introduction
+- Gives a brief overview about the project's purpose and scope.
+- Defines the problem by explaining the lack of accessible, data-driven coaching for all kinds of golfers.
+- Explains how CaddySense is able to fill the gap between performance tracking and personalized insight.
+
+1.2 Motivation
+- Describes the challenges that golfers face and their understanding on which parts of their game most affect their performance.
+- Discusses the relevance of AI personalization and how its applied to sports and fitness.
+- Connects to modern trends in sports analytics and wearable data systems.
+
+1.3 Current State of the Art
+- Reviews the current tools and apps (ex. Garmin, TrackMan)
+- Highlights the limitations such as how data collection exists without interpretation or guidance.
+- The position CaddySense has as a unique combination of data analysis and Ai-assisted feedback.
+
+1.4 Goals of the Project
+- To build a functional prototype that use:
+1. Local data storage and user profiles using SQLite.
+2. Statistical visuals of the players and their data.
+3. An AI coach that gives the user context, and feedback based advice.
+4. A system that recommends and suggests course types based on their skill level.
+- Shows how these goals are connecting to the computer science topics such as databases, machine learning, and human to computer interaction. 
+
+1.5 Ethical implications
+- discusses issues like data privacy, algorithms, and accessibility.
+- Reflects on how exactly AI systems in sports can reinforce controversy by accident.
+- Highlights strategies like transparency, open access, as well as user control of data.
+
+1.6 Overview
+- Gives a brief preview of the rest of the comp is organized and set up, as well as flowing into the next chapter.
+
+
+
+Justifications:
+The outline is designed to make sure that every requirement is met for chapter one.
+- The chapter makes sure to state the problem, and defines the main goals and objectives, and motivates the research by using real world examples and context.
+- Chapter One also includes an extensive ethical analysis, which is a main important piece to the chapter requirements.
+- It makes sure to balance between technical clarity, with societal relevance such as AI in personal development
+- Provides a smooth transition into my second chapter, which will look at reviewing literature that supports the project.

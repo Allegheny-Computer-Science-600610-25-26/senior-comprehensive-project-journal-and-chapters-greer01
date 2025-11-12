@@ -12,7 +12,7 @@ format:
 natbiboptions: numbers
 # EDIT AT YOUR OWN PERIL #
 
-title: Senior Thesis Title
+title: CaddySense: AI-Powered Golf Performance Assistant
 
 firstreader: First Reader
 secondreader: Second Reader
