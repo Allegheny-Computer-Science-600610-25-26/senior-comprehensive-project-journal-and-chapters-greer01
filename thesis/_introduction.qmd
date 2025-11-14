@@ -9,7 +9,9 @@ Personalized coaching is often not easily accessible. Lessons from teaching prof
 	
 Compared to typical golf tracking apps that are able to emphasize statistics without explanation or feedback, CaddySense is made to support interpretation, which is key in order to help golfers understand why certain results are occurring and also how they can improve based on their previous performances. This project plays a role in making a positive step in the right direction regarding human focus, and how AI can be used to interpret data in sports. It also shows how data analysis and large language model’s (LLM) reasoning can exist and produce contextual and personalized coaching.
 
+
 1.2 Current State:
+
 	The world of sports analytics has evolved largely over the past two decades. Company’s tools such as Arccos, TrackMan, and ShotScope are allowing players to capture detailed performance data, however these respective products are stopping short of providing clear, and personalized advice. They focus more on descriptive analytics, which answers more of a question of “What happened?”, rather than descriptive analytics such as “What to do next?”. 
 At the same time, artificial intelligence has shown great potential in personalized fitness and performance. Recent research like an article such as “AI in Digital Sports Coaching” (2024) and “Uses of Artificial Intelligence in Personalizing Sports Training” (2025), shows how machine learning models can use, and read biometric and contextual data in order to give specific recommendations. Although, most systems remain missing important details as they are succeeding in providing cloud based models, they lack as they are not transparent, and have no user control. 
 CaddySense is able to build on this by focusing on local computation, interpretability, and ethical structure.
@@ -22,6 +24,7 @@ User Input → SQLite Database → Data Analyzer → AI Coach → Recommendation
 This structure is able to support adaptability, reproducibility, and user trust, which are all qualities that are essential to ensure an ethical, sound, data-driven coaching system. By integrating these interpretable analyses using conversational AI, CaddySense is different from tools that already exist, acting not just as a tracker for statistics, but as an intelligent “caddy” that can be relied on for performance improvement.
 
 1.3 Goals of the Project:
+
 The overall goal of this project is to develop and evaluate an interpretable AI system that will help golfers improve their performance by transforming data into personalized, data considered feedback. CaddySense looks to demonstrate how explainable AI can improve accessibility, trust, and engagement within sports analytics. 
 Technical Goals include:
 
