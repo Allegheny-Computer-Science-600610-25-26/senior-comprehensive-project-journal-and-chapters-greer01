@@ -12,7 +12,7 @@ format:
 natbiboptions: numbers
 # EDIT AT YOUR OWN PERIL #
 
-title: Senior Thesis Title
+title: CaddySense
 
 firstreader: First Reader
 secondreader: Second Reader
@@ -20,7 +20,7 @@ secondreader: Second Reader
 bibliography: references.bib
 
 author:
-  - name: A. Student
+  - name: L. Greer
     affiliation:
       name: Allegheny College
       address: 520 N. Main St., Box Q
