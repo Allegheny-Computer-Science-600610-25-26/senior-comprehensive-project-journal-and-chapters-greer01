@@ -31,7 +31,6 @@ author:
 
 abstract: |
   A well-researched student project. Like very.
-<!--
 ---
 
 # Template description
@@ -96,7 +95,6 @@ Documents may include specific `LaTeX` commands _in Markdown_. To render these, 
 with markup denoting `LaTeX`. For example:
 
 ```
--->
 Checkmark character:   $\checkmark$
 Superscript character: $^{\dag}$
 ```
