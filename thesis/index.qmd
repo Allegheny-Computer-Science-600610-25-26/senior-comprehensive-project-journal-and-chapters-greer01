@@ -14,16 +14,16 @@ natbiboptions: numbers
 
 title: CaddySense
 
-firstreader: First Reader
-secondreader: Second Reader
+firstreader: Professor Oliver Bonham-Carter, Ph.D.
+secondreader: Professor Janyl Jumadinova, Ph.D.
 
 bibliography: references.bib
 
 author:
-  - name: L. Greer
+  - name: Logan Greer
     affiliation:
       name: Allegheny College
-      address: 520 N. Main St., Box Q
+      address: 520 N. Main St., Box 471
       city: Meadville
       state: Pennsylvania
       country: USA
@@ -31,6 +31,7 @@ author:
 
 abstract: |
   A well-researched student project. Like very.
+<!--
 ---
 
 # Template description
@@ -95,6 +96,7 @@ Documents may include specific `LaTeX` commands _in Markdown_. To render these, 
 with markup denoting `LaTeX`. For example:
 
 ```
+-->
 Checkmark character:   $\checkmark$
 Superscript character: $^{\dag}$
 ```
