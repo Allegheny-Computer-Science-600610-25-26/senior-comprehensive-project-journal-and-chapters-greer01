@@ -12,18 +12,18 @@ format:
 natbiboptions: numbers
 # EDIT AT YOUR OWN PERIL #
 
-title: Senior Thesis Title
+title: CaddySense
 
-firstreader: First Reader
-secondreader: Second Reader
+firstreader: Professor Oliver Bonham-Carter, Ph.D.
+secondreader: Professor Janyl Jumadinova, Ph.D.
 
 bibliography: references.bib
 
 author:
-  - name: A. Student
+  - name: Logan Greer
     affiliation:
       name: Allegheny College
-      address: 520 N. Main St., Box Q
+      address: 520 N. Main St., Box 471
       city: Meadville
       state: Pennsylvania
       country: USA

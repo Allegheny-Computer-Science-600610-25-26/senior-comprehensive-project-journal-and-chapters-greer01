@@ -1,0 +1,50 @@
+---
+title: "Activity Third post"
+date: "2024-11-08"
+---
+
+Outline and Justifications for Chapter Two: Related Work
+
+Title: Chapter Two: Related Work
+
+The second chapter of my senior thesis will look at and synthesize the academic literature that completes CaddySense. The goal is not only to cite prior work, but to demonstrate a deeper understanding of how those works connect in the regards of highlighting gaps, contradictions, and other things like opportunities that motivate this project.
+
+Outline of Chapter Two:
+
+2.1 Overview of AI in Sports
+- Summarizes major trends when applying AI to athletic performance (predictive modeling, video analysis, feedback systems).
+- Discusses early AI systems like the ones that were reviewed by 'Baca' (2013) and compare them to today's advanced systems like Zhou (2025).
+
+2.2 Personalized Training and Coaching Systems
+- Examines how AI driven tools are able to give personalized feedback, such as 'Plan fitting' (2023) and 'AI in Digital Sports Coaching' (2024).
+- Identifies the strengths for things like real time adaptability, and data insights, and weaknesses like privacy concerns, or lack of user context.
+- Explains how CaddySense is able to extend these ideas through things like conversational AI in local data.
+
+2.3 Ai Models and Performance Metrics
+- Reviews studies that are defining key performance indicators in sports analytics (driving distance, GIR%, and putting accuracy).
+- Connects how these metrics are translated into computational models along with training feedback systems.
+- Cites works like 'Baladaniya' (2025) and 'Abade' (2024) for sports performance and optimization.
+
+2.4 User Trust and AI Interaction
+- Discusses the research on user trust and acceptance of AI in coaching using (Wachholz, 2025).
+- Explores how conversations AI in certain models can improve engagement compared to other feedback dashboards.
+
+2.5 Ethical and Societal Context
+- Summarizes literature which addresses the fairness, accessibility, and the bias in the world of AI coaching tools. 
+- Discusses how CaddySense contributes when it comes to transparent and user controlled AI, which is explained with the work of 'Gao' (2024), and 'Majedi (2024).
+
+2.6 Summary and Research Gap
+- Highlights the major limitations when it comes to current research works like the lack of personalized systems for recreational athletes.
+- Positions CaddySense as a bridge between both sports analytics and personal AI assistance.
+
+
+Justifications
+This outline make sure that the requirements are reached by:
+- Making the connected discussions known, rather than just a list of summaries
+- Making note of 16 sources, and using them in the writing to support ideas and research.
+- Demonstrating the engagement when comparing, contrasting, and seeing the gaps in specific research.
+- Providing the main grounds for later chapters.
+
+Some visuals seen in this chapter may include: 
+- A comparison of how prior AI systems look at studies, approaches, limitations, and contributions.
+- A diagram that maps out where CaddySense fits into the AI in sports world.
