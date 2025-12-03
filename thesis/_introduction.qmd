@@ -48,7 +48,7 @@ This combination of reading analytics and conversational AI separates CaddySense
 When these components are put together, it forms a data flow that combines analytical precision with communication intelligence. The overall system structure, shown in Figure 1.1 (System Architecture Diagram) below shows this data flow:
 
 
-![Figure 1.1](thesis/images/Workflow.png)
+![Figure 1.1](images/Workflow.png)
 
 
 - User Input: players are able to enter their performance metrics
@@ -68,9 +68,9 @@ The project starts out with a structured dataset, which is accomplished through 
 A model which is prototyped in Python, then generates visual summaries that show the user performance trends. These visuals can range from histograms, scatter plots, and radar charts, and their purpose is to act as another layer to help the user understand their strengths and weaknesses. These visuals are a good way to display multiple areas of reasoning about a golfer’s game.
 
 
-![Figure 1.2](thesis/images/HistogramCP.png)
+![Figure 1.2](images/HistogramCP.png)
 
-![Figure 1.3](thesis/images/ScatterplotCP.png)
+![Figure 1.3](images/ScatterplotCP.png)
 
 
 CaddySense runs off of a local language model (Phi-3) to provide the conversational aspect of the project. Using Ollama, which is a model that runs fully on device, which allows the users to ask questions. For example “Why am I missing greens?” or “How can I become more consistent?” The AI “caddy” will respond to the asked question, while referencing the user’s personal metrics. This makes sure that the feedback remains specific, rather than generic.
