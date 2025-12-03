@@ -2,7 +2,7 @@
  
 The increasing expansion of artificial intelligence (AI) on sports specifically, has been seen to produce a rich, and increasing scope of research. This chapter looks into that literature in order to make sure that CaddySense stands within the ideas of AI coaching technologies, performance modeling, and human with AI interaction. Aside from a simple catalog of findings, this review will highlight how these words are related to one another, and where they are similar, and different. It will also show where the gaps are that they explain in the works. Throughout the chapter, it will demonstrate and show how these scholarly sources are playing into roles about conceptual, technical, and ethical foundations of CaddySense, but also showing opportunities for a system which is designed for all kinds of golfers. 
 
-# 2.1 Overview of AI in Sports
+## 2.1 Overview of AI in Sports
 
 Works early on involving AI sports training, mainly focused on structured rule based systems that were designed to help with narrowing training tasks. Authors Novatchkov and Baca (2013) explain this foundation by their weight training system that relied on an approach called explicit-encoded logic, limited sensor integration, and predefined feedback rules. [@plaat1996research] These specific systems were seen as innovative for their time, however static. This means that they were able to generalize, adapt, or even personalize feedback beyond what their programmer originally designed.
 
@@ -10,7 +10,7 @@ Other reviews show how the field overall had evolved dramatically. One specific 
 
 These more modern reviews also can be seen as similar to another work published in 2024, that argues that the future look of AI in coaching really depends on the ability to be able to support real time choice making rather than only providing summaries afterward. On the other hand, after reviewing all of these studies, researchers note that more complicated systems are still unevenly targeted at high performance athletes. More recreational athletes are usually lacking the level of treatment that the higher level athletes are receiving. This shows and opens another area that CaddySense can address in order to separate it from these other systems.
 
-# 2.2 Personalized Training and Coaching Systems
+## 2.2 Personalized Training and Coaching Systems
 
 Looking into a different area of literature, these works look into personalized or adaptive coaching systems. This is an important area as it is directly connected to these projects and its conversational and user targeted design. In a work published in 2024, this review of digital sports coaching, identifying personalization was one of the strongest ideas of user engagement and performance improvement. [@Jud2024_AIinDigitalSportsCoaching] They further highlight other systems that use biometric sensors, motion tracking, and machine learning models in order to tailor plans. [@Jud2024_AIinDigitalSportsCoaching] While these things are helpful, they also mention challenges such as: most systems struggle to learn contextual factors such as motivation, environment changes, or equipment availability. [@Jud2024_AIinDigitalSportsCoaching] These are all areas where I will take into consideration when designing CaddySense, and my goal is to overcome as many of these obstacles as possible.
 
@@ -27,7 +27,7 @@ Together, these studies as a whole provide two important limitations in personal
 
 Caddy Sense is specifically structured to overcome both of these ideas, to set it apart from these existing systems. 
 
-# 2.3 AI Models and Performance Metrics
+## 2.3 AI Models and Performance Metrics
 
 Performance metrics have always been the main key factor when it comes to AI driven sports analysis. Choudhary and Baladaniya in 2025 works describe how modern systems are able to integrate these metrics such as workload, force output, and technical efficiency in order to model pathways. Their review shows how performance modeling is the most effective when the metrics are both interpretable and actionable. [@Choudhary2025_AIinSportsScienceOptimization] This review shows and further proves why CaddySense was designed with such empshasis on clear golf metrics that can be easily interpreted and explained.
 
@@ -39,7 +39,7 @@ A work by Pietraszewski in 2025 provides another insight that differs from the w
 
 These datasets are explained to show more variability and nonlinear progression, which shows that different levels of athletes progress at different times, making their adaptation to feedback different from each other. [@Pietraszewski2025_RoleAIinSportsAnalytics] This relates to my project, CaddySense as it's designed for non-professional golfers who may be struggling with swings and other metrics, which makes their performance patterns different from assumed patterns in most models that already exist.
 
-# 2.4 User Trust and AI Interaction 
+## 2.4 User Trust and AI Interaction 
 
 Even the most complex AI models are seen to be ineffective if the athletes using them do not understand, or trust, these AI systems. A study conducted in 2025 describes and looks at the trust and the acceptance of AI-created exercise plans among recreational users. [@Wachholz2025_TrustAIExercisePlans] The results show two patterns throughout the study:
 
@@ -51,7 +51,7 @@ These implications go the same for CaddySense. Many current systems of coaching 
 
 A different work from Passmore and Tee in 2024, further shows how the combination between human and AI coaching models achieve the highest levels of engagement and trust when the AI works as a supportive figure rather than a demanding expert. [@Passmore2024_SystematicReviewAIinCoaching] Another work supports, and extends this argument, talking about how health coaching systems are achieving better results when users are perceiving the AI as contextual, flexible, and accountable. [@Terblanche2025_SystematicReviewHumanAIHybridCoaching] These ideas are the main structure for AI systems that are not just technically sensible, but also fit for users' expectations, which is exactly what CaddySesne is specifically designed to accomplish.
 
-# 2.5 Ethical and Societal Context
+## 2.5 Ethical and Societal Context
 
 Ethical concerns and considerations are seen across all literature about the topics mentioned so far. For example, Gao in 2024 mentions and highlights the issues of fairness, transparency, and accessibility when it comes to sports training. [Gao2024_AIinSportsEducationTraining] The work argues that certain coaching technologies are risking the building up of existing qualities within the user, and question if they are favoring elite athletes, or if they require expensive hardware. [Gao2024_AIinSportsEducationTraining] This is also seen in the work by Rahmani & Majedi, who explained that AI systems are lacking cultural, financial and infrastructural accessibility for the populations of athletes. [@Rahmani2024_ApplicationAIinSportsIndustry]
 
@@ -65,7 +65,7 @@ CaddySense targets and addresses these ethical implications by:
 
 These are the themes that are connected across the works of AI systems that are focusing on transparency, user interaction, and ethical measures, which are outside of just technical integration. [@Rahmani2024_ApplicationAIinSportsIndustry]
 
-# 2.6 Summary and Research Gap
+## 2.6 Summary and Research Gap
 
 Even with these noticeable advances in AI-based coaching and performance analysis, there are many gaps that can be seen across all the literature that was reviewed in this chapter. These gaps include:
 
