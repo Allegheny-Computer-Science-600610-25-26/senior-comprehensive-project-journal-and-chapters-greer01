@@ -12,7 +12,7 @@ format:
 natbiboptions: numbers
 # EDIT AT YOUR OWN PERIL #
 
-title: CaddySense
+title: CaddySense: AI Golf Performance Assistant
 
 firstreader: Professor Oliver Bonham-Carter, Ph.D.
 secondreader: Professor Janyl Jumadinova, Ph.D.
