@@ -1,6 +1,6 @@
 # Introduction
 
-## 1.1 Motivation:
+## Motivation:
 
 In today’s world, Artificial Intelligence (AI) has become one of the most transformative tools across almost all the domains of human performance. From healthcare and finance all the way to education and sports. [@Zhou2025_AIinSportNarrativeReview]
 
@@ -24,7 +24,7 @@ Personalized coaching is often not easily accessible. Lessons from teaching prof
 	
 Compared to typical golf tracking apps that are able to emphasize statistics without explanation or feedback, CaddySense is made to support interpretation, which is key in order to help golfers understand why certain results are occurring and also how they can improve based on their previous performances. This project plays a role in making a positive step in the right direction regarding human focus, and how AI can be used to interpret data in sports. It also shows how data analysis and large language model’s (LLM) reasoning can exist and produce contextual and personalized coaching.
 
-## 1.2 Current State:
+## Current State:
 	
 The world of sports analytics has evolved largely over the past two decades. Company’s tools such as Arccos, TrackMan, and ShotScope are allowing players to capture detailed performance data, however these respective products are stopping short of providing clear, and personalized advice. [@Mateaus2024_EmpoweringSportsScientistAI]
 
@@ -33,7 +33,7 @@ They focus more on descriptive analytics, which answers more of a question of �
 At the same time, artificial intelligence has shown great potential in personalized fitness and performance. Recent research like an article such as “AI in Digital Sports Coaching” (2024) and “Uses of Artificial Intelligence in Personalizing Sports Training” (2025), shows how machine learning models can use, and read biometric and contextual data in order to give specific recommendations. Although, most systems remain missing important details as they are succeeding in providing cloud based models, they lack as they are not transparent, and have no user control. [@Jud2024_AIinDigitalSportsCoaching], [@Li2025_AIinSportsTechnologiesReview]
 
 
-### 1.2.1 System Architecture
+### System Architecture
 
 CaddySense is implemented as a local desktop application and data analysis tool, not a wearable device or a cloud dependant service. This tool also is able to build on this by focusing on local computation, interpretability, and ethical structure. All the computation is done based off of local database storage, analytics, and AI advice, all performed locally from the user’s device. Future versions of CaddySense may become available as a mobile app, however the current prototype was designed only to show accessibility, and showing an offline system that is able to be private, and gives the user ownership. Some of the main features that make up the overall structure of CaddySense include: 
 
@@ -59,7 +59,7 @@ When these components are put together, it forms a data flow that combines analy
 
 This structure is able to support adaptability, reproducibility, and user trust, which are all qualities that are essential to ensure an ethical, sound, data-driven coaching system. By integrating these interpretable analyses using conversational AI, CaddySense is different from tools that already exist, acting not just as a tracker for statistics, but as an intelligent “caddy” that can be relied on for performance improvement.
 
-## 1.3 Goals of the Project:
+## Goals of the Project:
 
 The overall goal of this project is to develop and evaluate an interpretable AI system that will help golfers improve their performance by transforming data into personalized, data considered feedback. CaddySense looks to demonstrate how explainable AI can improve accessibility, trust, and engagement within sports analytics. 
 
@@ -86,35 +86,35 @@ Formal Contributions:
 - An ethical structure that emphasizes components like transparency, and privacy in AI backed coaching.
 - A conceptual model which shows how interpretable AI can generalize beyond golf to other areas, such as health, education, and even fitness.
 
-## 1.4 Ethical Implications: 
+## Ethical Implications: 
 
 CaddySense was developed with the purpose to explicitly pay attention to ethical responsibility. The choices of structure, from the storage of data to the AI generated feedback, reflect all the main themes of transparency, privacy, and fairness. These are all the key ideas to keep in mind when designing a tool, and to ensure that users have full control over their private information.
 
-### 1.4.1 Information Privacy:
+### Information Privacy:
 
 This tool currently performs all computations locally using Ollama and SQLite databases. No personal data is ever being sent to cloud servers or other external APIs, or any other external servers. This makes sure that the user has complete control of their information and is able to look at, edit, or delete their data at any given time.
 
 This design of making the data local is a clear difference from many commercial sports analytics tools, which often rely heavily on cloud infrastructure that would lead to their internal process being less accessible to users. CaddySense’s data is never uploaded, or shared.
 
-### 1.4.2 Information Accuracy and Reasoning: 
+### Information Accuracy and Reasoning: 
 
 The AI aspect of the tool is totally powered by Ollama’s Phi-3 model, which entirely runs on device. Since all interpretation is done locally, all recommendations are made without exporting any personal metrics or information to outside AI systems. This design fully prevents privacy risks and allows users to understand, and trust how their information is handled, and how their insights are produced.
 
 The system is built to be transparent in the way that analytical relationships are used to generate recommendations. For example, if a golfer has a lower green in regulation, this means that they also have a weaker approach accuracy. This assumption can be made entirely based on metrics, and not hidden behind assumed logic.
 
-### 1.4.3 Potential Misuse and Safety: 
+### Potential Misuse and Safety: 
 
 Since CaddySense provides performance advice, and not medical advice, its use overall provides minimal physical risk. This tool does not replace professional instruction or expertise. On the other hand, misuse could potentially occur if users are relying solely on the AI when it comes to decision-making. In order to prevent this, the system emphasizes interpretive assistance, not just absolute authority. When reinforcing that AI in this case complements rather than replaces professional coaching, which keeps the integrity of coaching and teaching professionals in sports training.
 
-### 1.4.4 Data Collection and Equity:
+### Data Collection and Equity:
 
 CaddySense uses synthetic data for demonstration purposes, which ensures ethical testing without the use of personal identifiers. Future iterations however, may use real data under explicit user consent. By focusing on open source use and on device computation, the tool is able to promote equity, which allows athletes to use it without commercial subscriptions to benefit from these advanced analytics. 
 
-### 1.4.5 Broader Impacts: 
+### Broader Impacts: 
 
 This work overall contributes more to current conversations about responsible AI in sports technology. They do this by modeling ethical, but interpretable, and also user centered design. Caddysense encourages transparency, and accessibility in an emerging field like AI tools. Its structure could be seen beyond golf, and looked at as serving as a blueprint for other transparent, domain specific AI assistance in things like fitness, education, and health monitoring. This promotes a future in human compatibility with AI resources, while still respecting ethics. 
 
-## 1.5 Chapter Summary:
+## Chapter Summary:
 
 This chapter introduced the motivation, project goals, and ethical background of CaddySesne, a tool using AI powered golf performance assistant that is able to transform raw golf player data into more meaningful, personalized advice to get better at the game of golf. This chapter highlights how, even though there is an upcoming expansion of sports analytics, current systems often stop at measurement rather than interpretation. To prevent this, CaddySense is in the position of an interpretable and conversational based AI system that can fill this gap between data collection and insight. Helping golfers actually understand not only what happened when it comes to their game, but also why it occurred and how exactly they can improve.
 
