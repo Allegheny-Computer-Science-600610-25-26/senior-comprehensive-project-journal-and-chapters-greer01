@@ -1,0 +1,27 @@
+---
+date: "2025-06-12"
+"Thesis Version": 0.9.0
+"Artifact Version": 1.0.0
+---
+
+## Thesis {{< meta "Thesis Version" >}}
+
+Currently, my thesis has an almost totally completed chapters 1 and 2, Introduction and Related Works chapters, I still am going through the final touches of editing and revising them to make sure that they hit all of the required fields.
+
+### Changes
+
+* Added some brief content to a few of the sections in chapter 2 to make it more explained and clear.
+* Added some tables to my Related works chapter to back up some of my points.
+* Looking into a revised and added some content in chapter 1 based on some feedback that I received from my second reader.
+* Finalized chapter one and am almost at the point to calling my Introduction Chapter completed.
+
+## Artifact {{< meta "Artifact Version" >}}
+
+Currently my computational artifact is in full prototype form and works to the full potential that I wanted it to be at by the end of this semester.
+
+### Changes
+
+* I added some changes to the README to make sure that others can run my program without issues.
+* Added some basic level error handling for smoother use.
+* Made sure the UI is clean and straight forward for the user.
+* Began thinking about what my first steps will be for transitioning my artifact in the spring semester.
