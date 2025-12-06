@@ -6,10 +6,12 @@ date: "2025-06-12"
 
 ## Thesis {{< meta "Thesis Version" >}}
 
-Currently, my thesis has an almost totally completed chapters 1 and 2, Introduction and Related Works chapters, I still am going through the final touches of editing and revising them to make sure that they hit all of the required fields.
+Currently, my thesis has an almost totally completed chapters 1 and 2, Introduction and Related Works chapters, I still am going through the final touches of editing and revising them to make sure that they hit all of the required fields. To summarize mt work that I completed for my thesis, I would say that I started out creating an outline for both chapters, to make sure that I had a clear plan for how I wanted to chapters to be structured. I then began getting sources together for my bib file. After that I began writing and getting feedback from my readers, and implementing their feedback into my writing to make it more complete. I also added visuals to each chapter to make it more clear, and easier to read and understand.
 
 ### Changes
 
+* Adapted the outline in both chapters 1 and 2 and write them to make them complete by the deadline
+* Made sure chapter 1 was efficient visuals to back up my arguments I made throughout the chapter.
 * Added some brief content to a few of the sections in chapter 2 to make it more explained and clear.
 * Added some tables to my Related works chapter to back up some of my points.
 * Looking into a revised and added some content in chapter 1 based on some feedback that I received from my second reader.
@@ -17,10 +19,13 @@ Currently, my thesis has an almost totally completed chapters 1 and 2, Introduct
 
 ## Artifact {{< meta "Artifact Version" >}}
 
-Currently my computational artifact is in full prototype form and works to the full potential that I wanted it to be at by the end of this semester.
-
+Currently my computational artifact is in full prototype form and works to the full potential that I wanted it to be at by the end of this semester. To summarize my work from this semester, I would say that I came a long way from when I started back in September. I completed rerouted my project and took a turn for what my artifact was going to look like. I basically rebuilt everything that I had from Junior Seminar and started from Scratch. I had to implement a whole new structure for this project and had to learn about new tools that would be helpful for my project. Over the semester, I successfully build a full functioning prototype in Python and by the end of the semester, I believe to be in a great spot for next semester.
 ### Changes
 
+* Added Local AI functionality as well as a local data storage (SQLite)
+* Added functionality for generating a random synthetic dataset to run tests and show viability for my project 
+* Added visuals that can be generated from golfer data to show trends and other metrics to back up my claims
+* Added a functioning course recommendation system that uses the players metrics in order to give them a course type best fit for them.
 * I added some changes to the README to make sure that others can run my program without issues.
 * Added some basic level error handling for smoother use.
 * Made sure the UI is clean and straight forward for the user.
