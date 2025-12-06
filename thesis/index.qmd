@@ -31,7 +31,7 @@ author:
 
 abstract: |
   A well-researched student project. Like very.
-```
+---
 {{< include _introduction.qmd >}}
 
 {{< include _related_work.qmd >}}
