@@ -33,7 +33,7 @@ CaddySense is implemented as a local desktop application and data analysis tool,
 
 This combination of reading analytics and conversational AI separates CaddySense from traditional systems. It is both an engine that is analytical and a communicational interface, designed in order to make performance data meaningful and attainable. When these components are put together, they form a data flow that combines analytical precision with communication intelligence. The overall system structure, shown in Figure 1.1 (System Architecture Diagram) below, shows this data flow:
 
-![Workflow of the CaddySense system. The user collected data is stored locally, analyzed, and processed through the AI coaching model, which is then translated and personalized into feedback and recommendations.] (images/Workflow.png)
+![Workflow of the CaddySense system. The user collected data is stored locally, analyzed, and processed through the AI coaching model, which is then translated and personalized into feedback and recommendations.](images/Workflow.png)
 
 - User Input: players can enter their performance metrics
 - SQLite Database: Stores performance information in a secure, local way.
