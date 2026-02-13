@@ -1,18 +1,112 @@
 # Method of approach
 
-This chapter answers the "how" question - how did you complete your project,
-including the overall design of your study, details of the algorithms and tools you
-have used, etc.  Use technical diagrams, equations, algorithms, and paragraphs of text
-to describe the research that you have completed. Be sure to number all figures and
-tables and to explicitly refer to them in your text.
+# Methods
 
-This should contain:
+## Overview and Methodological Goals
 
-* lists
-* with points
-* and more points
-  * possibly subpoints
+This chapter describes the methodological approach used to design, evaluate, and implement CaddySense, the golf coaching system developed to support golfers at all levels through personalized, data-based advice. While the last chapter described the conceptual and technical aspects of motivating the project, this chapter will focus on the practical “how” of the research. This includes how user interaction was designed, how artificial intelligence was incorporated into the system, and how ethical considerations were incorporated throughout the development process. 
 
-For those projects whose implications address social or moral issues (i.e. ethical
-standards, causes, effects), you will want to use this section to describe how you
-actively mitigated or considered these issues.
+The main methodological goal of this chapter is to show how a system-level approach can translate theoretical insights from sports analytics and human-centered AI into a fully functional, interpretable tool. Instead of framing CaddySense as a primarily predictive model or performance improvement engine, the methodology emphasized explanation, accessibility, and user trust. This kind of orientation influences each design decision, from local data storage to conversational reasoning.
+
+At a certain level, the methodology under CaddySense consisted of four interconnected components. First, a structured data-handling approach is implemented to make sure that golfer performance metrics remain consistent, interpretable, and controlled locally. Second, an AI reasoning strategy was selected to combine numerical performance data with conversational explanation, rather than relying exclusively on traditional machine learning prediction. Third, a more modular system architecture was developed to separate data storage, AI reasoning, and finally, user interaction concerns. This enables flexibility and transparency. Lastly, ethical safeguards were placed into both the technical and interaction-level decisions in order to address issues regarding privacy, bias, and explain ability. 
+
+By designing the methodology around these components, this chapter illustrated how exactly CaddySense was built not only as a technical artifact, but also as a responsible AI system made for real-world use by golfers who are not professionals. The remainder of the chapter described all of the methodological elements in order, ending with a discussion of how these decisions position the system for evaluation in the fourth chapter. 
+
+## System Architecture and Infrastructure
+
+### Overall System Design
+
+CaddySense was designed as a modular, AI coaching system that is able to transform structured golf performance data into more personalized, conversational feedback. Instead of presenting users with static dashboards or opaque numerical scores, the system is more guided for users through an interactive reasoning process that connects measurable performance metrics to practical improvement suggestions. 
+
+At a high level, this system’s workflow starts with user-provided data, which is stored locally and processed through a structured preprocessing pipeline. These metrics are then passed to an AI reasoning model that is responsible for contextual interpretation and feedback generation. Finally, the system’s response is delivered to the user through a conversational interface, which is designed to encourage more of a reflection and allow for follow-up questions or more detail about their journey to improve.
+
+In order to support this workflow, the architecture followed a specific separation of concerns. The data storage layer manages storage of golfer metrics using a local relational database. The AI reasoning layer handles explanation, interpretation, and response generation through both numerical conditioning and language-based reasoning. The user interaction layer facilitated conversational input and output, which acts as the primary point of engagement between the system and the user. 
+
+(Figure 3.1 illustrates the high-level CaddySense system architecture, showing the flow of information between these layers and highlighting how modular design enabled independent testing and refinement of each component. This separation allowed the system to remain flexible while maintaining a clear boundary between data handling and AI-driven interpretation.)
+
+### Local Infrastructure and Environment
+
+The infrastructure supporting CaddySense was purposefully designed for local execution rather than cloud-based deployment. All components of this system were executed on consumer-grade hardware using a local computing environment. This specific design reflects both ethical considerations and practical constraints that are relevant to the project and its target audience.
+
+From a more technical perspective, this system assumes access to a standard personal computer capable of running lightweight AI inference and database operations. No specialized hardware like GPUs or other cloud computing resources is required. This option ensured that the system remains accessible for recreational golfers and provides a more affordable option with a system that functions without advanced technical setups. 
+
+Moving away from cloud-based infrastructure serves several methodological purposes. First, a local execution enhances data privacy by ensuring that sensitive performance metrics are never left on the user-specific device. Secondly, it reduces the reliance on a persistent internet connection, which increases the usability in environments such as golf courses or training facilities with limited internet access. Thirdly, it allowed for more efficient cost control by eliminating subscription fee services or third-party APIs. 
+
+By designing this system around local infrastructure, the methods allowed for the technical feasibility with ethical responsibility, and reinforced the project and its emphasis on user trust.
+
+### Tools and Technologies Used
+
+
+The development of CaddySense mainly relies on a combination of programming languages, libraries, and supporting tools selected in order to balance functionality, interpretability, and ease of deployment. The primary programming language used for the prototype implementation was Python, chosen for its extensive ecosystem of data processing and AI libraries. 
+
+Several libraries are supporting data handling and preprocessing, including tools for numerical computation, normalization, and structured data manipulation. SQLite was chosen as the local database solution because of its lightweight nature and seamless integration with Python-based libraries. This allows for reliable local data storage without needing external database servers.
+
+Conversational AI reasoning was integrated using a locally hosted large language model interface. Running the interface locally ensures consistency with the project’s privacy goals, while also allowing for prompts to be controlled by the system. Supporting the tools included like environment management utilities and version control systems are used to maintain reproducibility. 
+
+(Table 3.1 summarizes the tools and technologies used in CaddySense, categorizing each by function and explaining its role within the system architecture. This table provided a concise reference for understanding how technical components aligned with methodological goals.)
+
+## Data Collection and Representation
+
+### Golf Performance Metrics Used
+
+The choice of the golf performance metrics was guided by the need for measurements that were both analytically meaningful and accessible to recreational golfers. Four of the primary metrics used in CaddySense include driving distance, greens in regulation (GIR), putting consistency, and approach-shot proximity.
+
+Driving distance measures the average length of tee shots and acts as an indicator of power and consistency off the tee. Greens in regulation represents the percentage of holes in which the golfer reached the green within the expected strokes, while also providing insight into ball striking effectiveness. Putting consistency captures a sense of variability in outcomes, also reflecting the short-game reliability Approach shot proximity measures the average distance from the hole on shots hit into the green. This offers a view of how accurate the iron play is from the golfer. 
+
+All of these metrics were selected because they were measurable using commonly available tools, are interpretable without advanced statistical knowledge, and are directly relevant to how the scoring outcomes look for recreational players.
+
+### Data Structuring and Storage
+	
+Once the performance metrics were chosen and identified, the next methodological challenge was to determine how these metrics should be represented, maintained, and stored over time. In AI-assisted coaching systems, the structure of data is not an obvious design choice. This choice directly changes the way that interpretability, adaptability, and ethical compliance is seen. Since CaddySense is intended to target recreational golfers rather than elite players, the data layer was designed to be clear, persistent, and user-owned rather than being computationally intense. 
+
+CaddySense adopts a structured relational data model that is implemented through a local SQLite database. This decision was made after considering many alternatives, including raw sensor stream storage, cloud-based NoSQL databases, and flat-file formats like CSV. Raw sensor streams, while they are information-heavy, introduce significant complexity and require constant preprocessing, which makes them poorly suited for users without advanced hardware or data pipelines. Flat files, however, lack a more relational structure, which is necessary to track performance scores and sessions reliably and efficiently. 
+
+A structured relational storage is what allows for performance sessions to be treated as a discrete, yet connected event within a broader performance history. Each golfer’s data is organized around session identifiers, timestamps, and metric values. This enables both session-level feedback and trend-based reasoning. This structure can also support the system’s main objective, which is to ground AI-generated feedback in measurable, explainable performance evidence, rather than abstracting scores or giving vague rankings. 
+
+SQLite was selected for this project because of how it enables local persistence without needing a server process or a network connection. This clearly aligned with the ethical goals mentioned previously in Chapter 2, specifically those related to data privacy and accessibility. By storing all data locally, CaddySense is able to avoid all third-party data transmission and also reduce the risk of unauthorized access. In addition, AQLite’s lightweight footprint allows compatibility with consumer-level hardware, which backs up the system’s accessibility for recreational users. 
+
+From a methodological perspective, structured storage also facilitates controlled experimentation. This is because each metric is stored in a normalized format, and it also becomes possible to isolate individual variables, look into their distributions, and test how the changes in one metric influence the feedback outcomes. This is essential for later evaluation as well as refinement of the system’s reasoning strategies.
+
+(Figure 3.2 Data Schema diagram) Content: Tables representing user profiles, performance sessions, individual metrics, and timestamps, with primary and foreign key relationships illustrated.)
+	
+### Data Preprocessing Pipeline
+
+Raw performance data, usually seen in recreational sports contexts, is rarely complete, consistent, or clean right out of the gate. As a result, preprocessing plays an important role in ensuring that AI-driven feedback remains meaningful, but also reliable. In CaddySense, the preprocessing step was seen as not a technical afterthought, but more as an integral aspect of the coaching logic itself.
+
+The preprocessing pipeline starts at the point of data ingestion, which is where user-entered metrics or imported values are checked against the expected ranges. For example, driving distance values that fall far from outside possible human performance are flagged and taken out of the analysis. This step will prevent extreme outliers from distorting both immediate feedback and longer trend analyses.
+
+Some examples of incomplete performance data include missing data. This is handled through a combination of simply editing or using contextual inference. Instead of attempting to figure out values automatically, which could produce misleading assumptions, the system will acknowledge incomplete sessions and then adjust its reasoning scope accordingly. For example, if putting data was unavailable for a session, the advice will then focus on approach plat and tee-shot consistency instead of generating putting-based feedback. This approach ensures reinforcement and transparency while also avoiding overstating system confidence. 
+
+Normalization is scaling are two other factors applied to make sure that metrics with different units and ranges can be compared in a meaningful way. Metrics such as driving distance and approach shot accuracy are scaled relative in order to achieve the expected benchmarks rather than only considering professional tour averages. This decision reflects the emphasis on the system’s relevance over expectation, which ensures that feedback remains achievable and motivational rather than disappointing and discouraging.
+
+Preprocessing decisions are guided by interpretability instead of model optimization by itself. Even though aggressive normalization techniques can improve the numerical stability, they are often seen to obscure the relationship between raw performance and advice. To preserve human-readable metrics values as much as possible, CaddySense maintains a clear chain to explain both the data input and AI output.
+
+(Image 3.1: Data preprocessing workflow Content: A flow diagram showing ingestion, validation, cleaning, normalization, and storage stages, with decision points for missing or invalid data.)
+
+## AI Model Selection and Reasoning Strategy
+
+### Choice of AI
+
+The choice of an appropriate AI strategy was one of the most important methodological decisions in this project. In early design exploration, it was revealed that neither purely predictive machine learning models nor language-based systems could by themselves satisfy this project’s goals of personalization, user trust, and transparency.
+
+Predictive models, such as regression or classification methods, are seen to excel at identifying patterns and forecasting outcomes but offer limited explanatory capacity. In a coaching context, prediction alone is seen as insufficient. Users must understand why a recommendation is being issued to them in order to truly trust and take it into account to get better results from the feedback. On the other hand, large language models are highly effective at generating natural-language explanations, but they lack grounding in numerical performance data. 
+
+CaddySense takes these differences into account and adopts a hybrid reasoning approach. Combining structured numerical metrics with conversational AI interpretation. This approach ensures that performance metrics are treated with authoritative anchors while it gives the user an explanation, contextualization, and personalization of the language model chosen. Instead of replacing the traditional analysis, the AI is serving as an interpretive layer than it able to translate data into more actionable guidance. 
+
+This hybrid design model reflects a commitment to other forms of intelligence rather than being fully automatic. The system does not attempt to optimize performance automatically, but instead supports human decision-making by surfacing trade-offs, highlighting trends, and offering suggestions grounded in the evidence. 
+
+### Conversational AI Integration
+
+Conversational AI plays an important role in CaddySense’s user experience; its integrations are carefully contained by design. The language model can run within a structured prompt framework that only incorporates user metrics, session context, and reasoning boundaries. This keeps the system from generating advice that is not connected to available data.
+
+Local inference was included over cloud-based deployment to maintain privacy and reduce dependency on outside services. This option also further supports the system’s role as a personal coaching assistant rather than a data-gathering platform. Even though local inference may impose computational limits, these constraints help guide prompts to be disciplined and focus on reasoning.
+
+The conversational interface is built to allow users to ask follow-up questions, request clarification, or explore other strategies depending on what they have available to them. This interaction mirrors how real-world coaching dynamics thrive, where dialogue plays an important role in how someone learns and continues to stay motivated to their task. By allowing users to interrogate recommendations, the system fosters active engagement rather than passive answers that cannot be expanded upon. 
+
+(Figure 3.3: Flow of conversational reasoning in CaddySense Content: Diagram showing metric input, prompt construction, AI reasoning, and user-facing explanation.)
+
+### Metric-Guided Feedback Generation
+
+A main methodological concern in the design of CaddySense was preventing AI-generated advice from becoming vague, unsupported, or misleading when recommending to the player. This concern is particularly important in all sports coaching contexts, where advice that is not grounded in measurable performance can undermine the user's trust and even reinforce ineffective training habits. To address this, CaddySense employs a metric-backed feedback generation strategy. This is where all AI responses are explicitly constrained and informed by structured numerical data.
+
+In this specific system, performance metrics do not only serve as background context. 
