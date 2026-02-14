@@ -45,14 +45,23 @@ By designing this system around local infrastructure, the methods allowed for th
 
 ### Tools and Technologies Used
 
-
 The development of CaddySense mainly relies on a combination of programming languages, libraries, and supporting tools selected in order to balance functionality, interpretability, and ease of deployment. The primary programming language used for the prototype implementation was Python, chosen for its extensive ecosystem of data processing and AI libraries. 
 
 Several libraries are supporting data handling and preprocessing, including tools for numerical computation, normalization, and structured data manipulation. SQLite was chosen as the local database solution because of its lightweight nature and seamless integration with Python-based libraries. This allows for reliable local data storage without needing external database servers.
 
 Conversational AI reasoning was integrated using a locally hosted large language model interface. Running the interface locally ensures consistency with the project’s privacy goals, while also allowing for prompts to be controlled by the system. Supporting the tools included like environment management utilities and version control systems are used to maintain reproducibility. 
 
-(Table 3.1 summarizes the tools and technologies used in CaddySense, categorizing each by function and explaining its role within the system architecture. This table provided a concise reference for understanding how technical components aligned with methodological goals.)
+Table: Summarizes the tools and technologies used in CaddySense and explains how each supports the system's objectives.
+
+| Tool / Technology            | Category              | Function in System                                   | Methodological Contribution                                      |
+|------------------------------|-----------------------|------------------------------------------------------|------------------------------------------------------------------|
+| Python                       | Programming Language  | Core system development and workflow                 | Enabled model implementation and rapid prototyping               |
+| SQLite                       | Database System       | Local relational storage of structured session data  | Preserved privacy and ensured structured data integrity          |
+| Local Language Model (LLM)   | AI Engine             | Generates conversational performance feedback        | Provided explainable, personalized coaching                      |
+| Prompt Engineering Framework | AI Control Mechanism  | Includes structured metrics into AI prompts          | Prevented misinformation and enforced metric-grounded reasoning  |
+| Data Validation Module       | Data Processing       | Checks metric ranges and detects missing data        | Maintained reliability and reduced analytical distortion         |
+| Metric Normalization Logic   | Data Processing       | Standardizes performance values across sessions      | Enabled fair and interpretable comparisons                       |
+| Conversational UI Interface  | Interaction Layer     | Supports natural-language engagement                 | Reduced cognitive load and increased accessibility               |
 
 ## Data Collection and Representation
 
@@ -76,8 +85,15 @@ SQLite was selected for this project because of how it enables local persistence
 
 From a methodological perspective, structured storage also facilitates controlled experimentation. This is because each metric is stored in a normalized format, and it also becomes possible to isolate individual variables, look into their distributions, and test how the changes in one metric influence the feedback outcomes. This is essential for later evaluation as well as refinement of the system’s reasoning strategies.
 
-(Figure 3.2 Data Schema diagram) Content: Tables representing user profiles, performance sessions, individual metrics, and timestamps, with primary and foreign key relationships illustrated.)
-	
+Table: Outlines the relational database supporting CaddySense, identifying primary keys, and stored performance attributes.
+
+| Entity/Table            | Primary Key  | Foreign Key Relationship                  | Key Attributes                                                      |
+|--------------------------|--------------|------------------------------------------|---------------------------------------------------------------------|
+| User_Profile             | user_id      | —                                        | name, experience_level, created_at                                  |
+| Performance_Session      | session_id   | user_id → User_Profile                   | session_date, course_name, notes                                    |
+| Performance_Metrics      | metric_id    | session_id → Performance_Session         | driving_distance, GIR, putts, approach_proximity, scrambling_rate   |
+| Timestamp_Log            | timestamp_id | session_id → Performance_Session         | created_at, updated_at                                              |
+
 ### Data Preprocessing Pipeline
 
 Raw performance data, usually seen in recreational sports contexts, is rarely complete, consistent, or clean right out of the gate. As a result, preprocessing plays an important role in ensuring that AI-driven feedback remains meaningful, but also reliable. In CaddySense, the preprocessing step was seen as not a technical afterthought, but more as an integral aspect of the coaching logic itself.
@@ -90,7 +106,16 @@ Normalization is scaling are two other factors applied to make sure that metrics
 
 Preprocessing decisions are guided by interpretability instead of model optimization by itself. Even though aggressive normalization techniques can improve the numerical stability, they are often seen to obscure the relationship between raw performance and advice. To preserve human-readable metrics values as much as possible, CaddySense maintains a clear chain to explain both the data input and AI output.
 
-(Image 3.1: Data preprocessing workflow Content: A flow diagram showing ingestion, validation, cleaning, normalization, and storage stages, with decision points for missing or invalid data.)
+Table: Summary of the sequential preprocessing stages that are applied to raw performance inputs to structured storage and AI interpretation.  
+
+| Processing Stage         | Purpose                                          | Decision Criteria                     | Resulting Output          |
+|--------------------------|--------------------------------------------------|---------------------------------------|---------------------------|
+| Raw Data                 | Capture user-entered session metrics             | —                                     | Raw Session Data          |
+| Validation Check         | Confirm acceptable value ranges and completeness | Valid / Invalid                       | Cleaned or Flagged Data   |
+| Outlier Detection        | Identify statistically extreme values            | Outlier Threshold                     | Filtered Metrics          |
+| Normalization & Scaling  | Standardize metrics for cross-session comparison | —                                     | Scaled Performance Values |
+| Structured Formatting    | Convert cleaned data into relational format      | —                                     | Structured Record         |
+| Database Storage         | Persist session in SQLite database               | —                                     | Stored Session Data       |
 
 ## AI Model Selection and Reasoning Strategy
 
@@ -112,7 +137,16 @@ Local inference was included over cloud-based deployment to maintain privacy and
 
 The conversational interface is built to allow users to ask follow-up questions, request clarification, or explore other strategies depending on what they have available to them. This interaction mirrors how real-world coaching dynamics thrive, where dialogue plays an important role in how someone learns and continues to stay motivated to their task. By allowing users to interrogate recommendations, the system fosters active engagement rather than passive answers that cannot be expanded upon. 
 
-(Figure 3.3: Flow of conversational reasoning in CaddySense Content: Diagram showing metric input, prompt construction, AI reasoning, and user-facing explanation.)
+Table: Shows the structured reasoning sequence through which performance metric are embedded into prompts and transformed into conversational feedback.
+
+| Step | Process Stage                  | Description                                              | Output                     |
+|------|--------------------------------|----------------------------------------------------------|----------------------------|
+| 1    | User Question                  | User requests performance analysis or advice             | Natural Language Input     |
+| 2    | Metric Retrieval               | Extract relevant session metrics from database           | Structured Metric Set      |
+| 3    | Prompt Construction            | Embed metrics into constrained AI prompt                 | Conditioned Prompt         |
+| 4    | AI Reasoning                   | Local LLM generates response based on embedded metrics   | Draft Feedback             |
+| 5    | Response Validation            | Confirm metric references and remove unsupported claims  | Verified Feedback          |
+| 6    | Conversational Output          | Deliver response to user interface                       | Final Coaching Response    |
 
 ### Metric-Guided Feedback Generation
 
@@ -126,7 +160,15 @@ Another element of metric-guided feedback is the awareness of uncertainty. Most 
 
 To further prevent risks, the system enforces a rule that recommendations have to go through at least one of the metrics that are present is the user’s data profile. If sufficient data is unavailable for one of the metrics of performance, like putting consistency, the AI is told to state this setback clearly rather than speculate. This design choice reinforces transparency and also aligns with the ethical principles discussed later in this chapter.
 
-(Image 3.2: Metric-conditioned response generation Content: A diagram showing how raw metrics are transformed into structured summaries, embedded into AI prompts, and used to generate grounded, explainable feedback.)
+Table: Describes how raw performance metrics are transformed into structured summaries that contain and guide AI-generated coaching feedback.
+
+| Stage                            | Input Example                         | Transformation Applied                        | Resulting Output              |
+|----------------------------------|---------------------------------------|-----------------------------------------------|-------------------------------|
+| Raw Metric Extraction            | Driving Distance: 250 yd              | Direct session retrieval                      | Numeric Metric                |
+| Raw Metric Extraction            | GIR: 42%                              | Direct session retrieval                      | Numeric Metric                |
+| Summary Classification           | Aggregate metric relationships        | Strength / Weakness identification            | Performance Profile           |
+| Variance Assessment              | Session-to-session variability        | Consistency scoring                           | Trend Indicator               |
+| Constrained AI Generation        | Structured summary + prompt template  | Metric-conditioned reasoning                  | Grounded Coaching Feedback    |
 
 ## User Interaction and Feedback Loop
 
@@ -150,7 +192,16 @@ The feedback steps also distinguish between long and short term development stra
 
 CaddySense has an important emphasis on explanation over instruction. Instead of giving the user basic instructions, the system explains the reasoning behind its suggestions, which encourages the user to internalize concepts and also apply them in a flexible manner. This approach directly aligns with the research on effective coaching and also supports user engagement. 
 
-( Figure 3.4: User feedback loop diagram Content: A cyclical diagram showing data input, AI reasoning, conversational feedback, user action, and updated performance data.)
+Table: Represents the feedback cycle through which user performance data tells adaptive AI coaching across successive sessions.
+
+| Cycle Stage                | Actor   | Description                                           | Outcome                    |
+|----------------------------|---------|-------------------------------------------------------|----------------------------|
+| Play Round                 | User    | Complete golf session                                 | Raw Performance Data       |
+| Enter Session Data         | User    | Input round statistics                                | Stored Metrics             |
+| Data Processing            | System  | Validate and structure session data                   | Clean Dataset              |
+| AI Feedback Generation     | System  | Produce metric-conditioned coaching insight           | Personalized Feedback      |
+| Practice Adjustments       | User    | Apply recommended refinements                         | Behavioral Adjustment      |
+| Subsequent Round           | User    | Begin next performance cycle                          | Updated Metrics            |
 
 ## Experimental Design and Testing Procedures
 
@@ -168,7 +219,15 @@ In order to address adaptive behavior, scenario-based evaluation was implemented
 
 This evaluation approach shows interpretability instead of just numerical accuracy. The goal was not to optimize the predictions, but to also ensure that feedback logic was aligned with the golfer’s skill level and avoided professional-level assumptions. The results showed that CaddySense adjusts complexity, tone, and focuses in the right places in different scenarios. 
 
-(Table 3.2: Test scenarios and expected outcomes Content: Golfer profile descriptions, input metric characteristics, and intended feedback emphasis.)
+Table: Shows the scenario-based evaluation framework used to assess CadySense's adaptive feedback actions across varied golfer profiles and data conditions.
+
+| Golfer Profile           | Performance Characteristics                       | Data Pattern Observed                  | Expected Feedback Emphasis                        |
+|--------------------------|---------------------------------------------------|----------------------------------------|---------------------------------------------------|
+| Beginner                 | Low distance, inconsistent putting                | High variance across sessions          | Fundamental mechanics and consistency development |
+| Intermediate             | Moderate distance, inconsistent GIR               | Stable distance, low approach accuracy | Approach refinement and strategic course play     |
+| Advanced Recreational    | High distance, strong short game                  | Stable but plateaued scoring           | Precision optimization and marginal gains         |
+| Incomplete Data Base     | Missing short-game metrics                        | Partial dataset                        | Transparent limitation acknowledgment             |
+| High Variability Case    | Large session-to-session swings                   | Significant statistical variance       | Pattern recognition over prescriptive advice      |
 
 ## Ethical Considerations and Mitigation Strategies
 
@@ -190,7 +249,17 @@ This design makes sure that CaddySense remains accessible to a broad population 
 
 Transparency is supported through explanation of recommendations and open-ended user questioning. Rather than presenting vague scores or rankings, the system emphasizes the reasoning and justification. The users are encouraged to question their outputs, which makes them more likely to trust and understand the system.
 
-(Table 3.3: Ethical risks and mitigation strategies Content: Ethical concern, associated risk, and corresponding methodological response.)
+Table: Summarizes the primary ethical risks identified in the designing of CaddySense and the methodological prevention tools put in place to mitigate them.
+
+| Ethical Concern               | Associated Risk                                          | Methodological Mitigation Strategy                           |
+|-------------------------------|----------------------------------------------------------|--------------------------------------------------------------|
+| Data Privacy                  | Unauthorized access or third-party exposure              | Local-only SQLite storage with no external transmission      |
+| Algorithmic Bias              | Reinforcement of elite-centric benchmarks                | Calibration against recreational performance                 |
+| AI Inconsistency              | Generation of unsupported or misleading advice           | Metric-backed prompt construction and validation layer       |
+| Over-Prescriptive Feedback    | Reduced user autonomy and dependency                     | Explanation-focused recommendations                          |
+| Accessibility Inequality      | Exclusion of users without advanced hardware             | Hardware-based data inputs                                   |
+| Lack of Transparency          | Opaque AI reasoning processes                            | Explicit reference to performance metrics in responses       |
+| Misinterpretation of Variance | Incorrect conclusions drawn from noisy data              | Variance detection and uncertainty mechanisms                |
 
 ## Summary of Methodological Contributions
 
