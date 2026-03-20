@@ -306,3 +306,35 @@ Even though the experimental process and design were carefully created, there ar
 ### Internal Validation Threats
 
 Internal threats to validation usually come from the use of synthetic data and testing environments. Even though synthetic profiles are good for reproducible evaluation, they might not be able to capture the full complexity of real instances of performance variability. Some evaluation metrics as well include further interpretation by the evaluator themself, which could bring up potential bias. 
+
+### External Validation Threats
+
+The external validity is limited since the evaluation did not involve actual golfers or their data in a field testing sense. As a result of this, the findings mainly show the overall system behavior when running the controlled conditions instead of real-world coaching advice effectiveness. Future looks into further testing would involve user testing and a more methodical performance tracking.
+
+### Construct Validity Threats
+
+Construct validity includes a rise in the measurement of concepts like explanation quality and transparency. Even though evaluation metrics were defined, some of the assessments still rely on judgment. Including external coaching experts as evaluators would theoretically raise construct validity in a future work model.
+
+### Scope and Research Limitations
+
+Lastly, the overall scope of this research leaves out some areas that could be potentially researched in studies in the future. Currently, the system does not try to make predictions of performance outcomes or skill improvements. Also, the evaluation does not measure changes in behavior which results from the recommendations from CaddySense.
+
+These specific limitations are a reflection of the focus of the study and its behavior, instead of real-world outcomes in performance.
+
+## Summary of Experimental Findings
+
+This chapter overall went through all of the experimental evaluation of the CaddySense system. The results demonstrate that the system acts consistently and transparently under the specified testing environments. 
+
+Key findings include: 
+
+- Deterministic reliability of the rule-based layer
+- High metric grounding rate in AI-generated explanations
+- Strong adherence to structured output constraints
+- Effective adaptation of advice to golfer skill levels
+- Accurate behavior when encountering incomplete or vague data
+
+At the same time, experimental results showed that there are many important design trade-offs between flexibility and interpretability, generative depth and constraint contents, and privacy against scalability.
+
+The evaluation also proved that CaddySense handled many computing principles well, including privacy protection, user experience, and transparency.
+
+Although the results are hopeful, the study still has some limitations because of its reliance on synthetic test profiles and controlled experimental conditions. Future work should focus on exploring more real-world scenarios and using real golfers for their own specific evaluations. The findings that were shown in this chapter show a strong foundation for the more in-depth discussion about the conclusion that will be further explored in the next chapter. 
