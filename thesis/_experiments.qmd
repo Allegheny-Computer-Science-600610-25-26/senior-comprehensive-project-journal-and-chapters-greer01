@@ -299,7 +299,7 @@ Transparency has always been a primary goal for CaddySense. Throughout the evalu
 
 To add, the system does not give recommendations as something that needs to be in order to improve, it instead gives the advice only as a suggestion that users may use to change their own preferences and training plans. This specific design favors user experience and also encourages for engagement with the system’s advice and recommendations.
 
-## 4.6 Threats to Validation
+## Threats to Validation
 
 Even though the experimental process and design were carefully created, there are still some threats to validity that come up.
 
