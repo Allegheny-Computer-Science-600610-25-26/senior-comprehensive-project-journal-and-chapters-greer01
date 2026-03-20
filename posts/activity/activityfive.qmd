@@ -1,0 +1,206 @@
+---
+title: "Activity Fifth post"
+date: "2026-02-23"
+---
+
+Outline and Justifications for Chapter Four: Experiments and Evaluation
+
+Title: Chapter Four: Experiments and Evaluation
+
+4.1 Overview and Objectives
+- Explain the exact purpose of the experiments chapter 
+- Describe how this chapter makes the methodology from chapter 3 function and measure the evaluation
+- Clarify that this chapter evaluates the behavior of the system rather than predictive performance
+- Provide a high level summary of: 
+a. design framework
+b. Evaluation metrics and thresholds
+c. Stats and analysis methods 
+d. Responsible computing validation 
+- Establish the overall goal:
+- Determine weather CaddySense behaves consistently, transparently, and responsibly under controlled testing conditions.
+- Clarifies scope boundaries: 
+a. No predictive modeling accuracy claims 
+b. No human tampering trials
+c. Evaluations is system-centered rather than outcome-centered
+
+4.2 Experimental Design Framework
+
+4.2.1 Research questions
+- Define the core research questions guiding evaluation
+a. Does the rule-based analytics layer able to produce deterministic and reproducible classification?
+b. Does the conversational AI support its feedback in measurable metrics?
+c. Does the system adhere to predefined restrictions (practice time limits, output length)
+d. Does the advice appropriately adapt to different golfer skill tiers? 
+e. Does the system maintain clear when data is incomplete or vague?
+Explain how the research question maps and how it directly points to a measurable validation strategy
+
+4.2.2 Experimental Environment and Output context
+- A description of evaluation environment:
+a. Local execution (non-cloud)
+b. Consumer level Hardware
+c. Offline inference 
+- Rationale: 
+a. Ensures privacy 
+b. Maintains reproducibility 
+c. Controls external variability
+- Justify why the evaluation did not involve real time sensor feeds
+- Explain controlled testing conditions 
+(Figure: 4.1. Experimental execution environment overview)
+
+4.2.3 Synthetic Golfer Profile Construction 
+- Tell of how test cases were designed 
+- Justify for synthetic data rather than real user Data
+- Profile categories: 
+a. Beginner (High handicap, low GIR, inconsistent putting)
+b. Intermediate (moderate consistency, mixed strengths)
+c. Advanced recreational (low handicap, marginal inefficiencies)
+d. Distance-dominant but inaccurate
+e. High varied profile
+f. Missing-data profile
+g. Extreme, but valid metric profile
+- Explain:
+a. Controlled variable isolation
+b. Reproducibility logic
+c. Internal validity benefits 
+(Table 4.1 synthetic golfer test profiles and characteristics)
+
+4.2.4 Evaluation Metrics and Success Thresholds
+- Define the metrics used to evaluate system performance
+a. Deterministic Rates
+b Metric Grounding Rate
+c. consistent adherence rate 
+d. skill tier adaptation
+e. Transparency correctness
+f. missing theory incidences
+- Define the threshold for success before the evaluation
+- Justify the threshold selection in order to prevent confirmation bias
+(Table 4.2 Evaluation metrics and predefined success thresholds)
+
+4.3 System Level Evaluation Results
+
+4.3.1 
+- Report the classification reproducibility
+- Evaluate the consistency of weakness detection
+- Asses skill tier assignment reliability
+- Talk about:
+a. Strength: interpretability
+b. limitation: rigid threshold boundaries
+(Figure 4.2 Deterministic classification consistency results)
+
+4.3.2 Metric grounding and Explanation Quality
+- Measure the percentage of AI responses referencing structured metrics
+- Identify instances of generic advice
+- Evaluate the improvements after prompt refinement
+- Include qualitative examples of: 
+a. Strong grounding 
+b. Weak grounding
+(Table 4.3 Metric grounding summary)
+
+4.3.3 Constraint and Practice Plan Boundaries
+- Evaluate:
+a. word count limit
+b. Time to practice limits
+c. Drill count consistency
+d. Include of time for each drill details
+- Analyze the violations and the ability to refinement
+(Figure 4.3 Constraint violations and refinements)
+
+4.3.4 Skill-level Adaptation Analysis
+- Compare feedback complexity across:
+- Beginner
+- Intermediate
+- Advanced recreational 
+- look at:
+a. Tone 
+b. Terminology complexity
+c. point of view intensity
+- Identify cases of over or not enough adjustment 
+(Image 4.1 comparative skill level feedback structure)
+
+4.3.5 Missing and odd responses
+- Evaluate behavior when: 
+a. The  metrics are missing 
+b. Metrics are extreme
+c. inconsistency is high
+- Assess transparency responses
+- Measure the assumed incidences
+- Discuss the humility in system responses
+(Figure 4.4 Transparency and hallucination audit results)
+
+4.4 Trade-Off Analysis and System Behavior Insights
+
+4.4.1 Interpretability vs the Flexibility
+- Rule backed clarity against contextual advice
+- The benefits of more deterministic parameters
+- The limitations in capturing performance abilities
+
+4.4.2 Control of constraints vs the generative depth
+- More structured output and how it increases safety
+- talk about how to reduce the expressive variation
+- The balance between bounded advice and how it contributes to personalization
+
+4.4.3 Privacy Preservation against System Scalability
+- The benefits of local only deployment 
+- The computational constraints and restrictions
+- The potential limitations for large based deployment
+
+4.4.4 Synthetic Control against real world generalizations
+- Internal validity pros
+- External validity limitations
+- More implications for future field studies
+(Table 4.4: Identified trade-offs and the system implications)
+
+4.5 Responsible Computing Validation 
+
+4.5.1 Privacy and Data Controls in Experimental Context
+- Confirms: 
+a. No external data transfer
+b. No third party API logs 
+c. Local storage integrity
+
+4.5.2 The Bias and Fairness Review
+- The evaluation of: 
+a. skill level bias 
+b. Performance benchmarking bias
+c. Avoidance of more elite athlete assumptions
+
+4.5.3 Transparency and User Agency Usage
+- Specific explanation of recommendations
+- Avoidance of vague scoring systems
+- Encouraging user following questions
+(Table 4.5: Responsible computing evaluation outcomes)
+
+4.6 Threats to Validity
+
+4.6.1 Internal Validity Threats 
+- Synthetic data limits
+- Evaluate the subjectivity in the scoring 
+- Control the testing environment
+
+4.6.2 External Validity Threats
+- Limited to recreational golfers
+- no Real world testing
+- Hardware restrictions
+
+4.6.3 Build Validity Threats
+- The partial reliance on assessment 
+- No outside coaching expert benchmark
+- Metric-grounding measurement subjectivity
+
+4.6.4 Scope and Research Boundary Limitations 
+- No assuming accuracy claims
+- No lengthy improvement tracking
+- No more behavioral performance 
+
+4.7 Summary of Experimental Findings 
+- Recap of: 
+a. Deterministic reliability
+b. High metric Rates
+c. Strong protective adherence
+d. more effective skill level adaption
+e. identified trade-offs 
+- Reflection on:
+a. System strengths
+b. Observed Limitations
+c. Design refinements informed by the results
+- Transition statement into Chapter 5 (Discussion/Conclusion)
