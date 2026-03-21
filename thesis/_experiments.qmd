@@ -66,9 +66,9 @@ Another key advantage of the local execution was pre-producibility. Since the ex
 
 The environment also left out real-time sensor integration. While more modern sports analytics systems often rely on wearable devices or motion sensors, the goal of this study was to evaluate the behavior of the AI coaching system rather than to integrate real-time data. This allowed for all input metrics to be supplied manually through simulated profiles. 
 
-(FIGURE 4.1 Experimental execution environment overview)
-
 The nature of this testing allowed the researchers to observe only the behavior of the system’s reasoning components and, therefore, evaluate them under a condition in which they are not affected by anything else, making it reproducible.
+
+![Illustrates the full local experimental execution, showing how data flows through the system without reliance on external services.](images/flowchart.png)
 
 ### Synthetic Golfer Profile Construction
 
@@ -80,9 +80,19 @@ A third category resembles that of an advanced golfer with a low handicap, but s
 
 Lastly, some more extreme cases were created to provide another perspective on how the system handled outliers in performance metrics. These are technically possible, but are a far reach from the average recreational golfer.
 
-(TABLE 4.1: Experimental execution environment overview) 
-
 The use of synthetic data presents a lot of methodological advantages. It makes the evaluation able to only look at certain variables at one time, to make sure that the same scenarios could be seen multiple times, and ethical concerns would therefore be taken away from the collection of personal data. Even though synthetic data cannot fully replicate real-world behavior, it provided an environment for testing and allowed an examination of CaddySense's internal logic.
+
+Table: Shows the synthetic golfer profiles used for evaluation across different skill level and other performance characteristics.
+
+| Profile Type             | Handicap | Driving Distance | GIR (%) | Putts per Hole | Approach Accuracy (%) | Key Characteristics                        |
+|--------------------------|----------|------------------|--------|----------------|----------------------|----------------------------------------------|
+| Beginner                 | 22       | 210              | 35     | 2.4            | 45                   | Inconsistent, weak short game                |
+| Intermediate             | 12       | 240              | 55     | 2.0            | 60                   | Balanced but inconsistent                    |
+| Advanced Recreational    | 4        | 260              | 68     | 1.8            | 72                   | Efficient, small weaknesses                  |
+| Distance-Dominant        | 10       | 290              | 48     | 2.1            | 50                   | Long but inaccurate                          |
+| High Variance            | 14       | 250              | 60     | 2.5            | 65                   | Inconsistent across sessions                 |
+| Missing Data             | 16       | 235              | N/A    | 2.2            | 58                   | Incomplete performance metrics               |
+| Outlier Metrics          | 8        | 310              | 75     | 1.6            | 80                   | High but realistic golfer performance        |
 
 ### Evaluation Metrics and Success Points
 
@@ -96,9 +106,18 @@ The third area of evaluation was the adherence rate for the system's practice pl
 
 Additional metrics examined and tested included skill-tier adaptation, transparency when data were missing or incomplete, and incidents in which the system generated unsupported advice that did not make sense to the user. 
 
-(TABLE 4.2 Evaluation metrics and predefined success thresholds) 
-
 All in all, these metrics provided a comprehensive analysis of the reliability, interpretability, and overall safety of CaddySense.
+
+Table: Defines the evaluation and predefined thresholds that were used to look into system performance.
+
+| Metric Name                    | Description                                           | Success Threshold |
+|--------------------------------|-------------------------------------------------------|-------------------|
+| Consistency Rate               | % of identical outputs across repeated runs           | 100%              |
+| Metric Grounding Rate          | % of responses referencing performance metrics        | ≥ 85%             |
+| Rule Meeting Rate              | % of outputs meeting all defined rules                | ≥ 90%             |
+| Skill-level Adaptation         | Degree of correct feedback adjustment                 | ≥ 85%             |
+| Transparency Compliance Rate   | % of responses acknowledging missing/vague data       | ≥ 90%             |
+| Vague Output Incidence Rate    | % of unsupported or assumption claims                 | ≤ 5%              |
 
 ## System-Level Evaluation Results
 
@@ -107,8 +126,6 @@ All in all, these metrics provided a comprehensive analysis of the reliability, 
 The first component evaluated in this phase was the deterministic rule-based layer. This layer uses threshold conditions to identify weaknesses and assign skill tiers to categories, while it is also expected to produce the same outputs whenever identical inputs are given to the system.
 
 Across the scenarios, the system showed perfect reproducibility. Each of the simulated golfer profiles produced the same weakness points and skill-tier assignments when evaluated many times. There was no variation in classification results seen during the study.
-
-(FIGURE 4.2 Deterministic classification consistency results)
 
 This outcome confirms that the rule-based layer behaves as expected and provides a strong foundation for the hybrid AI reasoning process. The results that were demonstrated produced a 100% deterministic rate for all test cases. 
 
@@ -140,6 +157,8 @@ This illustrates a common pattern in these rule-based systems. Even though thres
 Looking ahead at future system designs, additional techniques could be implemented, such as weighted scoring systems or confidence intervals, to help prevent these boundary events while maintaining interpretability.
 
 Overall, the analytics layer performed as expected and successfully evaluated the predefined rules for consistency and reliability. 
+
+![Shows that deterministic classification results stayed consistent across all repeated runs.](images/skilltierchart.png)
 
 ### Metric Grounding and Explanation
 
@@ -175,6 +194,20 @@ This highlights an important note when it comes to the generative AI system. Eve
 
 Overall, the metric grounding performance of the system was strong for the most part, showing that the integration of this structured analysis while using generative feedback can produce transparent and data-backed coaching advice.
 
+![Shows the proportion of AI responses that reference performance metrics against those who did not.](images/pielol.png)
+
+Table: Summary of how frequently AI-generated responses directly referenced the structured performance metrics.
+
+| Profile Type           | Total Responses | Grounded Responses | Grounding Rate (%) | Notes                          |
+|------------------------|----------------|--------------------|--------------------|--------------------------------|
+| Beginner               | 10             | 9                  | 90%                | Minor generalization           |
+| Intermediate           | 10             | 9                  | 90%                | Strong metric references       |
+| Advanced               | 10             | 10                 | 100%               | Highly specific advice         |
+| Distance-Heavy         | 10             | 9                  | 90%                | Clear explanation in difference |             |
+| High Variety           | 10             | 8                  | 80%                | Some generalized advice        |
+| Missing Data           | 10             | 9                  | 90%                | Transparent limitations        |
+| Outlier Metrics        | 10             | 10                 | 100%               | Strong grounding               |
+
 ### Constraint Adherence and Practice Plan Boundaries
 
 Another major objective that was thoroughly tested in this process was to verify that CaddySense follows predefined constraints that make up the structure of the generated practice plans. These rules were implemented to ensure that the recommendations stayed realistic, safe, and created a realistic training condition for the user.
@@ -203,6 +236,8 @@ Although these violations were insignificant, they highlight a key detail when i
 
 Lastly, these results show that constraint mechanisms were successful in following the rules and producing practical outputs. This is essential for responsible AI-assisted coaching systems and tools. 
 
+![Illustrates the adherence rates comparing different output constraints, showing strong results with structured generation rules.](images/constrainttype.png)
+
 ### Skill-Tier Adaptation Analysis
 
 CaddySense was further evaluated for its ability to change the feedback correctly based on specific golfer skill tiers. This is an important attribute to have as advice that is designed for beginner golfers might be useless, or mocking to those of an advanced or intermediate player.
@@ -222,6 +257,21 @@ The advanced profile got the most detailed advice, which included more discussio
 All in all, the skill tier adaptation evaluation also exceeded expectations, which means that the system overall was more successful at adjusting its feedback for certain skill levels.
 
 As always, a small number of the responses are a little over adjustment, where the feedback for the advanced players would be too technical and would be confusing for the user and their specific range of skill. Despite this, the overall results show that the system is capable of tailoring feedback in a manner that lines up with the experience that is intended.
+
+![Shows the overall system performance across all the evaluation metrics, showing great success to the predetermined goals.](images/metricpercentage.png)
+
+Table: Presents a further visual looking at the results compared against predefined success thresholds.
+
+| Metric                        | Observed Value | Threshold | Passed (Yes/No) |
+|------------------------------|---------------|----------|-----------------|
+| Deterministic Consistency    | 100%          | 100%     | Yes             |
+| Metric Grounding             | 91%           | 85%      | Yes             |
+| Constraint Adherence         | 96%           | 90%      | Yes             |
+| Skill-Tier Adaptation        | 88%           | 85%      | Yes             |
+| Transparency Compliance      | 94%           | 90%      | Yes             |
+| Assumption Rate              | 2%            | ≤ 5%     | Yes             |
+
+![Compares advice complexity across skill levels, showing the system's ability to change explanation depth and adjust terminology.](images/bubble.png)
 
 ### Response to Missing Data
 
@@ -245,7 +295,18 @@ When looking into all of the test cases, the incidence rate was very low, and it
 
 These findings suggest to the user that the system demonstrates a low enough rate of these incidences, proving to the user that there is trust in the system when there is incomplete data, rather than making up and assuming their skill level before providing them with feedback.
 
+![Shows how transparency is kept across different levels of data completeness, showing how the system handles uncertainty.](images/typeha.png)
+
 ## Trade-Off Analysis and System Behavior Insights
+
+Table: Summary of the key design trade-offs found during experimental evaluation.
+
+| Trade-Off Category              | Benefit                                   | Limitation                                   | Implication                                  |
+|--------------------------------|-------------------------------------------|-----------------------------------------------|----------------------------------------------|
+| Interpretability vs Flexibility | Clear, explainable decisions              | Limited appearance in edge cases              | Strong for trust, weaker for complexity     |
+| Constraint vs Generative Depth  | Safe, structured outputs                  | Reduced creativity                            | Better for user experience                  |
+| Privacy vs Scalability          | Full data control                         | Limited large-scale deployment                | Strong ethical support                      |
+| Synthetic vs Real-World Data    | Control and reproducibility               | Limited generalizability                      | Requires future field validation            |
 
 Even though the evaluation results showed a positive trend in system performance, the experiments also provided many important trade-offs that are present in the design of the system. 
 
