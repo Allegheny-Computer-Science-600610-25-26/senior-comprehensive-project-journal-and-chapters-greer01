@@ -84,7 +84,7 @@ The use of synthetic data presents a lot of methodological advantages. It makes 
 
 Table: Shows the synthetic golfer profiles used for evaluation across different skill level and other performance characteristics.
 
-| Profile Type             | Handicap | Driving Distance | GIR (%) | Putts per Hole | Approach Accuracy (%) | Key Characteristics                        |
+| Profile Type             | Handicap | Driving Distance | GIR (%)| Putts per Hole | Approach Accuracy (%)| Key Characteristics                          |
 |--------------------------|----------|------------------|--------|----------------|----------------------|----------------------------------------------|
 | Beginner                 | 22       | 210              | 35     | 2.4            | 45                   | Inconsistent, weak short game                |
 | Intermediate             | 12       | 240              | 55     | 2.0            | 60                   | Balanced but inconsistent                    |
@@ -198,12 +198,12 @@ Overall, the metric grounding performance of the system was strong for the most 
 
 Table: Summary of how frequently AI-generated responses directly referenced the structured performance metrics.
 
-| Profile Type           | Total Responses | Grounded Responses | Grounding Rate (%) | Notes                          |
+| Profile Type           | Total Responses| Grounded Responses | Grounding Rate (%) | Notes                          |
 |------------------------|----------------|--------------------|--------------------|--------------------------------|
 | Beginner               | 10             | 9                  | 90%                | Minor generalization           |
 | Intermediate           | 10             | 9                  | 90%                | Strong metric references       |
 | Advanced               | 10             | 10                 | 100%               | Highly specific advice         |
-| Distance-Heavy         | 10             | 9                  | 90%                | Clear explanation in difference |             |
+| Distance-Heavy         | 10             | 9                  | 90%                | Clear explanation in difference|
 | High Variety           | 10             | 8                  | 80%                | Some generalized advice        |
 | Missing Data           | 10             | 9                  | 90%                | Transparent limitations        |
 | Outlier Metrics        | 10             | 10                 | 100%               | Strong grounding               |
@@ -262,7 +262,7 @@ As always, a small number of the responses are a little over adjustment, where t
 
 Table: Presents a further visual looking at the results compared against predefined success thresholds.
 
-| Metric                        | Observed Value | Threshold | Passed (Yes/No) |
+| Metric                       | Observed Value| Threshold| Passed (Yes/No) |
 |------------------------------|---------------|----------|-----------------|
 | Deterministic Consistency    | 100%          | 100%     | Yes             |
 | Metric Grounding             | 91%           | 85%      | Yes             |
@@ -301,8 +301,8 @@ These findings suggest to the user that the system demonstrates a low enough rat
 
 Table: Summary of the key design trade-offs found during experimental evaluation.
 
-| Trade-Off Category              | Benefit                                   | Limitation                                   | Implication                                  |
-|--------------------------------|-------------------------------------------|-----------------------------------------------|----------------------------------------------|
+| Trade-Off Category              | Benefit                                   | Limitation                                    | Implication                                 |
+|---------------------------------|-------------------------------------------|-----------------------------------------------|---------------------------------------------|
 | Interpretability vs Flexibility | Clear, explainable decisions              | Limited appearance in edge cases              | Strong for trust, weaker for complexity     |
 | Constraint vs Generative Depth  | Safe, structured outputs                  | Reduced creativity                            | Better for user experience                  |
 | Privacy vs Scalability          | Full data control                         | Limited large-scale deployment                | Strong ethical support                      |
