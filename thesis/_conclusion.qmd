@@ -52,7 +52,7 @@ The use of AI generation in itself shows another ethical concern that is directl
 
 Lastly, there is a social impact ethical concern that is directly related to the role that AI plays in skill development. CaddySense, as it becomes stronger in the future, may have an effect on how players are leaning and practicing their skills. Even though this can give benefits, it can also raise questions about the balance between human judgment and other guidance. Making sure that AI systems are supporting human learning processes and not replacing them will always be a main concern as technology moves into the future. Since all of the ethical implications have now been brought to attention, some things can be said about them. Future versions of CaddySense have to make sure it is transparent and has user control as its main design. Evaluation should also keep in mind the potential bias and to be sure to avoid them. Communication should also be made sure to keep within the predetermined rules when it comes to the generation of AI advice. Collaboration, when it comes to technology, ethics, and other methods, should be used to ensure that the AI system is developed correctly and safely.
 
-Table: Label me.
+Table: Looking into different ethical areas when it comes to CaddySense's current design and looks into the remaining concerns and recommendations. 
 
 | Ethical Area       | Addressed in Current System | Remaining Concern                  | Recommendation                      |
 |--------------------|-----------------------------|------------------------------------|-------------------------------------|

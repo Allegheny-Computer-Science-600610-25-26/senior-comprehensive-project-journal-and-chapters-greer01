@@ -60,7 +60,7 @@ All of these research questions point to the measurable strategies discussed in 
 
 All experimental evaluations were conducted in the same computing environment used in the CaddySense prototype. The system runs fully through local execution and does not require cloud-based services or APIs. This also included a standard consumer-grade computer that is capable of running lighter-weight database operations and local LLMs.
 
-The use of local running was intentional and aligns with the design principles described in Chapter 3. By conducting experiments with an offline environment, the results made sure that no external data was transferred during the testing process. This prevented user privacy and also kept interference from other external network conditions. 
+The use of local running was intentional and aligns with the design principles described in Chapter 3. By conducting experiments with an offline environment, the results made sure that no external data was transferred during the testing process. This is further explained by figure 4, and this prevented user privacy and also kept interference from other external network conditions. 
 
 Another key advantage of the local execution was pre-producibility. Since the experiments were conducted on a single controlled system build, the AI interface remained consistent across many runs. This made it possible to see the outcomes and recreate scenarios without introducing variability from service updates or external infrastructure changes.
 
@@ -80,7 +80,7 @@ A third category resembles that of an advanced golfer with a low handicap, but s
 
 Lastly, some more extreme cases were created to provide another perspective on how the system handled outliers in performance metrics. These are technically possible, but are a far reach from the average recreational golfer.
 
-The use of synthetic data presents a lot of methodological advantages. It makes the evaluation able to only look at certain variables at one time, to make sure that the same scenarios could be seen multiple times, and ethical concerns would therefore be taken away from the collection of personal data. Even though synthetic data cannot fully replicate real-world behavior, it provided an environment for testing and allowed an examination of CaddySense's internal logic.
+The use of synthetic data presents a lot of methodological advantages. This data approach makes the evaluation able to only look at certain variables at one time, to make sure that the same scenarios could be seen multiple times, and ethical concerns would therefore be taken away from the collection of personal data. Even though synthetic data cannot fully replicate real-world behavior, it provided an environment for testing and allowed an examination of CaddySense's internal logic.
 
 Table: Shows the synthetic golfer profiles used for evaluation across different skill level and other performance characteristics.
 
@@ -156,7 +156,7 @@ This illustrates a common pattern in these rule-based systems. Even though thres
 
 Looking ahead at future system designs, additional techniques could be implemented, such as weighted scoring systems or confidence intervals, to help prevent these boundary events while maintaining interpretability.
 
-Overall, the analytics layer performed as expected and successfully evaluated the predefined rules for consistency and reliability. 
+As you can see from figure 5 below, the analytics layer performed as expected and successfully evaluated the predefined rules for consistency and reliability. 
 
 ![Shows that deterministic classification results stayed consistent across all repeated runs.](images/skilltierchart.png)
 
@@ -192,7 +192,7 @@ In order to address this, there were some slight adjustments made to encourage t
 
 This highlights an important note when it comes to the generative AI system. Even though they are capable of giving a good-sounding explanation, their understanding of structured data has to be actively backed up through the prompt design rules and evaluation. 
 
-Overall, the metric grounding performance of the system was strong for the most part, showing that the integration of this structured analysis while using generative feedback can produce transparent and data-backed coaching advice.
+Further explained in figure 6, the metric grounding performance of the system was strong for the most part, showing that the integration of this structured analysis while using generative feedback can produce transparent and data-backed coaching advice.
 
 ![Shows the proportion of AI responses that reference performance metrics against those who did not.](images/pielol.png)
 
@@ -234,7 +234,7 @@ The smaller number of rules that were not followed during testing was only relat
 
 Although these violations were insignificant, they highlight a key detail when it comes to generative model advice structure. More rules were given to the predetermined rules in order to prevent the system from making this small mistake with the word count in future practice plan generations.
 
-Lastly, these results show that constraint mechanisms were successful in following the rules and producing practical outputs. This is essential for responsible AI-assisted coaching systems and tools. 
+Lastly, these results shown in figure 7 below conclude that constraint mechanisms were successful in following the rules and producing practical outputs. This is essential for responsible AI-assisted coaching systems and tools. 
 
 ![Illustrates the adherence rates comparing different output constraints, showing strong results with structured generation rules.](images/constrainttype.png)
 
@@ -256,7 +256,7 @@ The advanced profile got the most detailed advice, which included more discussio
 
 All in all, the skill tier adaptation evaluation also exceeded expectations, which means that the system overall was more successful at adjusting its feedback for certain skill levels.
 
-As always, a small number of the responses are a little over adjustment, where the feedback for the advanced players would be too technical and would be confusing for the user and their specific range of skill. Despite this, the overall results show that the system is capable of tailoring feedback in a manner that lines up with the experience that is intended.
+As always, also shown in figure 8, a small number of the responses are a little over adjustment, where the feedback for the advanced players would be too technical and would be confusing for the user and their specific range of skill. Despite this, the overall results show that the system is capable of tailoring feedback in a manner that lines up with the experience that is intended. Further explanations for the difference in golfer skill levels can be see in figure 9.
 
 ![Shows the overall system performance across all the evaluation metrics, showing great success to the predetermined goals.](images/metricpercentage.png)
 
@@ -293,7 +293,7 @@ This evaluation also monitored the Incidence Rate of Unsupported Claims. This is
 
 When looking into all of the test cases, the incidence rate was very low, and it stands well underneath the hypothesized threshold.
 
-These findings suggest to the user that the system demonstrates a low enough rate of these incidences, proving to the user that there is trust in the system when there is incomplete data, rather than making up and assuming their skill level before providing them with feedback.
+These findings, as seen in figure 10, suggest to the user that the system demonstrates a low enough rate of these incidences, proving to the user that there is trust in the system when there is incomplete data, instead of making up and assuming their skill level before providing them with feedback.
 
 ![Shows how transparency is kept across different levels of data completeness, showing how the system handles uncertainty.](images/typeha.png)
 
@@ -301,12 +301,12 @@ These findings suggest to the user that the system demonstrates a low enough rat
 
 Table: Summary of the key design trade-offs found during experimental evaluation.
 
-| Trade-Off Category              | Benefit                                   | Limitation                                    | Implication                                 |
-|---------------------------------|-------------------------------------------|-----------------------------------------------|---------------------------------------------|
-| Interpretability vs Flexibility | Clear, explainable decisions              | Limited appearance in edge cases              | Strong for trust, weaker for complexity     |
-| Constraint vs Generative Depth  | Safe, structured outputs                  | Reduced creativity                            | Better for user experience                  |
-| Privacy vs Scalability          | Full data control                         | Limited large-scale deployment                | Strong ethical support                      |
-| Synthetic vs Real-World Data    | Control and reproducibility               | Limited generalizability                      | Requires future field validation            |
+| Trade-Off Category              | Benefit                       | Limitation               | Implication                         |
+|---------------------------------|-------------------------------|--------------------------|-------------------------------------|
+| Interpretability vs Flexibility | Clear, explainable decisions  | Limited appearance       | Strong for trust, weaker complexity |
+| Constraint vs Generative Depth  | Safe, structured outputs      | Reduced creativity       | Better for user experience          |
+| Privacy vs Scalability          | Full data control             | Limited deployment       | Strong ethical support              |
+| Synthetic vs Real-World Data    | Control and reproducibility   | Limited generalizability | Requires future field validation    |
 
 Even though the evaluation results showed a positive trend in system performance, the experiments also provided many important trade-offs that are present in the design of the system. 
 
