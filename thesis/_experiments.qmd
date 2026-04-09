@@ -158,7 +158,7 @@ Looking ahead at future system designs, additional techniques could be implement
 
 As you can see from figure 5 below, the analytics layer performed as expected and successfully evaluated the predefined rules for consistency and reliability. 
 
-![Shows that deterministic classification results stayed consistent across all repeated runs.](images/skilltierchart.png)
+![Shows that deterministic classification results stayed consistent across all repeated runs.](images/skilltierchart.png){width=30%}
 
 ### Metric Grounding and Explanation
 
@@ -194,7 +194,7 @@ This highlights an important note when it comes to the generative AI system. Eve
 
 Further explained in figure 6, the metric grounding performance of the system was strong for the most part, showing that the integration of this structured analysis while using generative feedback can produce transparent and data-backed coaching advice.
 
-![Shows the proportion of AI responses that reference performance metrics against those who did not.](images/pielol.png)
+![Shows the proportion of AI responses that reference performance metrics against those who did not.](images/pielol.png){width=30%}
 
 Table: Summary of how frequently AI-generated responses directly referenced the structured performance metrics.
 
@@ -236,7 +236,7 @@ Although these violations were insignificant, they highlight a key detail when i
 
 Lastly, these results shown in figure 7 below conclude that constraint mechanisms were successful in following the rules and producing practical outputs. This is essential for responsible AI-assisted coaching systems and tools. 
 
-![Illustrates the adherence rates comparing different output constraints, showing strong results with structured generation rules.](images/constrainttype.png)
+![Illustrates the adherence rates comparing different output constraints, showing strong results with structured generation rules.](images/constrainttype.png){width=30%}
 
 ### Skill-Tier Adaptation Analysis
 
@@ -258,7 +258,7 @@ All in all, the skill tier adaptation evaluation also exceeded expectations, whi
 
 As always, also shown in figure 8, a small number of the responses are a little over adjustment, where the feedback for the advanced players would be too technical and would be confusing for the user and their specific range of skill. Despite this, the overall results show that the system is capable of tailoring feedback in a manner that lines up with the experience that is intended. Further explanations for the difference in golfer skill levels can be see in figure 9.
 
-![Shows the overall system performance across all the evaluation metrics, showing great success to the predetermined goals.](images/metricpercentage.png)
+![Shows the overall system performance across all the evaluation metrics, showing great success to the predetermined goals.](images/metricpercentage.png){width=30%}
 
 Table: Presents a further visual looking at the results compared against predefined success thresholds.
 
@@ -271,7 +271,7 @@ Table: Presents a further visual looking at the results compared against predefi
 | Transparency Compliance      | 94%           | 90%      | Yes             |
 | Assumption Rate              | 2%            | ≤ 5%     | Yes             |
 
-![Compares advice complexity across skill levels, showing the system's ability to change explanation depth and adjust terminology.](images/bubble.png)
+![Compares advice complexity across skill levels, showing the system's ability to change explanation depth and adjust terminology.](images/bubble.png){width=30%}
 
 ### Response to Missing Data
 
@@ -295,7 +295,7 @@ When looking into all of the test cases, the incidence rate was very low, and it
 
 These findings, as seen in figure 10, suggest to the user that the system demonstrates a low enough rate of these incidences, proving to the user that there is trust in the system when there is incomplete data, instead of making up and assuming their skill level before providing them with feedback.
 
-![Shows how transparency is kept across different levels of data completeness, showing how the system handles uncertainty.](images/typeha.png)
+![Shows how transparency is kept across different levels of data completeness, showing how the system handles uncertainty.](images/typeha.png){width=30%}
 
 ## Trade-Off Analysis and System Behavior Insights
 
