@@ -72,15 +72,11 @@ CaddySense was developed with the purpose of explicitly paying attention to ethi
 
 ### Information Privacy:
 
-This tool currently performs all computations locally using Ollama and SQLite databases. No personal data is ever sent to cloud servers or other external APIs, or any other external servers. This makes sure that the user has complete control of their information and is able to look at, edit, or delete their data at any given time.
-
-This design of making the data local is a clear difference from many commercial sports analytics tools, which often rely heavily on cloud infrastructure that would lead to their internal process being less accessible to users. CaddySense’s data is never uploaded or shared. The idea to store all user data locally was made with broader research emphasizing the importance of personal data and privacy in AI systems [@Huang2024_IntegrationAIinSportsCoaching].
+This tool currently performs all computations locally using Ollama and SQLite databases. No personal data is ever sent to cloud servers or other external APIs, or any other external servers. This makes sure that the user has complete control of their information and is able to look at, edit, or delete their data at any given time. This design of making the data local is a clear difference from many commercial sports analytics tools, which often rely heavily on cloud infrastructure that would lead to their internal process being less accessible to users. CaddySense’s data is never uploaded or shared. The idea to store all user data locally was made with broader research emphasizing the importance of personal data and privacy in AI systems [@Huang2024_IntegrationAIinSportsCoaching].
 
 ### Information Accuracy and Reasoning: 
 
-The AI aspect of the tool is totally powered by Ollama’s Phi-3 model, which entirely runs on the device. Since all interpretation is done locally, all recommendations are made without exporting any personal metrics or information to outside AI systems. This design fully prevents privacy risks and allows users to understand and trust how their information is handled and how their insights are produced.
-
-The system is built to be transparent in the way that analytical relationships are used to generate recommendations. For example, if a golfer has a lower green in regulation, this means that they also have a weaker approach accuracy. This assumption can be made entirely based on metrics and not hidden behind assumed logic.
+The AI aspect of the tool is totally powered by Ollama’s Phi-3 model, which entirely runs on the device. Since all interpretation is done locally, all recommendations are made without exporting any personal metrics or information to outside AI systems. This design fully prevents privacy risks and allows users to understand and trust how their information is handled and how their insights are produced. The system is built to be transparent in the way that analytical relationships are used to generate recommendations. For example, if a golfer has a lower green in regulation, this means that they also have a weaker approach accuracy. This assumption can be made entirely based on metrics and not hidden behind assumed logic.
 
 ### Potential Misuse and Safety: 
 
