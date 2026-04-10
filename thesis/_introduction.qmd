@@ -51,9 +51,9 @@ The project starts out with a structured dataset, which is accomplished through 
 
 A model that is prototyped in Python, then generates visual summaries that show the user's performance trends. The visuals that are seen in figures 2 and 3, can range from histograms, scatter plots, and radar charts, and their purpose is to act as another layer to help the user understand their strengths and weaknesses. These visuals are a good way to display multiple areas of reasoning about a golfer’s game.
 
-![Driving distance distribution across a synthesized dataset of golfers. This histogram shows the wide performance measures of driving distance, which allows for CaddySense's need for AI coaching, rather than traditional non-personalized coaching.](images/HistogramCP.png){width=50%}
+![Driving distance distribution across a synthesized dataset of golfers. This histogram shows the wide performance measures of driving distance, which allows for CaddySense's need for AI coaching, rather than traditional non-personalized coaching.](images/HistogramCP.png){width=75%}
 
-![Relationship between driving distance to greens in regulation percentage. This scattered pattern shows how longer drivers of the golf ball do not always score better on approach shots. This shows how the system needs multiple metrics instead of relying on a few.](images/ScatterplotCP.png){width=50%}
+![Relationship between driving distance to greens in regulation percentage. This scattered pattern shows how longer drivers of the golf ball do not always score better on approach shots. This shows how the system needs multiple metrics instead of relying on a few.](images/ScatterplotCP.png){width=75%}
 
 CaddySense runs off a local language model (Phi-3) to provide the conversational aspect of the project. Using Ollama, which is a model that runs fully on the device, allows users to ask questions. For example, “Why am I missing greens?” or “How can I become more consistent?” The AI “caddy” will respond to the asked question, while referencing the user’s personal metrics. This makes sure that the feedback remains specific, rather than generic.
 
