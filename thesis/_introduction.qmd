@@ -2,7 +2,7 @@
 
 ## Motivation:
 
-Artificial Intelligence (AI) has become a transformative tool across many domains. From healthcare and finance to education and sports [@Zhou2025_AIinSportNarrativeReview]. On the other hand, in many of these fields, the power and availability of data have improved our ability to read and interpret it correctly. In the realm of sports analytics, many athletes and coaches are increasingly relying on digital tracking tools that can record thousands of performance metrics. However, only a few systems provide actionable insights that are tailored to individual athletes and coaches based on individual data. 
+Artificial Intelligence (AI) has become a transformative tool across many domains. From healthcare and finance to education and sports [@Zhou2025_AIinSportNarrativeReview]. On the other hand, in many of these fields, the power and availability of data have improved our ability to read and interpret it correctly. In the world of sports analytics, many athletes and coaches are increasingly relying on digital tracking tools that can record thousands of performance metrics. However, only a few systems provide actionable insights that are tailored to individual athletes and coaches based on individual data. 
 
 In golf, a clear example of this gap can be seen in data collection and interpretation. There are technologies such as wearable sensors, specifically, GPS trackers, and other advanced club monitoring devices; golfers today can measure nearly every part of their game performance. Key metrics that my tool uses include driving distance, approach accuracy, putting consistency, and greens hit in regulation (GIR). 
 
