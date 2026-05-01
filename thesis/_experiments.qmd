@@ -1,14 +1,303 @@
-# Experiments
+# Experiments and Evaluation
 
-This chapter describes your experimental set up and evaluation. It should also
-produce and describe the results of your study. The section titles below offer
-a typical structure used for this chapter.
+## Chapter Overview and Experimental Objectives
 
-## Experimental Design
+This chapter will present the experimental setup and the evaluation used to assess the behavior and performance of CaddySense’s system as a whole. The goal of Chapter 3 was to describe the methodological design and the technical structure used to build the system. The purpose of this specific chapter is to show those same methodological decisions and turn them into a more measurable evaluation technique. This will be done through multiple testing scenarios and controlled experimental conditions. This chapter will also investigate whether CassySense operates in an interpretable and consistent manner when presented with different golfer performance profiles. 
 
-Especially as it pertains to responisble computing, if conducting experiments or
-evaluations that involve particular ethical considerations, detail those issues here.
+Compared with traditional sports analytics research, which mainly focuses on predictive modeling accuracy, this study evaluates system behavior rather than prediction performance. CaddySense was not designed to predict scores or simulate player outcomes using regression or machine learning. Instead, this system works as a hybrid AI-driven assistant that takes the structured performance metrics and makes them into personalized feedback and insights. The system also generates training plans and course recommendations based on the golfer's current metrics. As a result, the experiments are evaluated to determine whether these functions are being performed consistently and responsibly. 
 
-## Evaluation
+The system's framework focuses on validating key aspects of its performance. To start, the rule-based analytical layer must demonstrate reproducibility and consistency when evaluating the same input metrics. Next, the conversational AI reasoning component must demonstrate that the generated responses remain grounded in the numerical data provided by the user. Third, the generation systems produce structured training plans that must adhere to previously defined boundaries, such as word and time limits. To continue, the system must also show the ability to adapt the advice correctly across all of the different golfer skill levels. Lastly, CaddySense must keep the transparency and responsible behavior intact when coming across missing or ambiguous data.  
 
-## Threats to Validity
+To make sure to achieve these goals, this chapter begins an evaluation framework that combines both qualitative and quantitative strategies of validation. Quantitative metrics are used primarily to measure aspects such as classification, constraint guidance, and assumption-based incidents. Qualitative analysis, on the other hand, is used to look at the clarity, relevance, and interpretability of the AI-generated advice. To add, statistical summaries and visual techniques are both used to highlight certain patterns in the system and how it acts in different test cases.
+
+Another notable component of the experimental evaluation is the validation of the responsible computing rules. In Chapter 3, it was discussed that CaddySense was built with a focus on ethical considerations, including privacy protection, transparency of reasoning, and the prevention of bias. This chapter revisits those considerations and examines whether those rules are protected under the testing conditions. 
+
+The main goal of this chapter is to determine whether CaddySense behaves consistently and responsibly, while staying transparent when going through controlled experimental cases. To evaluate these properties, the study sets out to demonstrate hybrid AI systems that provide interpretable, practical coaching advice while maintaining responsible design elements. 
+
+It is equally important to ensure that the boundaries of the evaluation are clearly defined. The experiments presented in this chapter do not attempt to measure improvements in golfer performance or training effectiveness. There are absolutely no human participants in the study, and no real-world coaching trials were done. Instead, the evaluation mainly focuses on the system's behavior under hypothetical conditions. This approach allows analysis to assess the system's effectiveness and reliability without extensive testing on real-world test subjects or in training environments. 
+
+The rest of this chapter details the experimental design, evaluation techniques, results, and limitations of the study.
+
+## Experimental Design Framework
+
+### Research Questions
+
+The overall evaluation of CaddySense is guided by research questions that assess the tool's reliability, interpretability, and responsible behavior. These research questions are directly related to the structure and components first introduced in Chapter 3. This further allows for evaluation and focus on the specific properties of CaddySense. 
+
+The first research question looks into the behavior of the analytics layer: 
+
+RQ1: Does the rule-based layer give a deterministic and reproducible classification when there are identical performance metrics given?
+
+Since this layer relies more on rules than on probability models, identical inputs should ideally produce the same results. This research question, therefore, demonstrates the reproducibility of the overall system’s weakness detection and skill-level classification.
+
+The second research question’s idea is to focus on the grounding of the AI-generated advice:
+
+Does the conversational style AI consistently give its explanations in performance metrics that are measurable? 
+
+This question asks whether the language model uses the user's numerical inputs when generating coaching advice, or whether it occasionally provides vague or unsupported recommendations based on the user's specific metrics.
+
+The third research question evaluates the generation mechanism that is used for the training plan:
+
+RQ3: Does the system listen to the predetermined output restrictions, like practice duration and the response length limits?
+
+The practice plan generator has certain boundaries, such as limiting daily practice time to two hours and the total length of the output it generates. This question looks into whether those conditions are met.
+
+The fourth question was asked to look at the adaptability of the system's coaching style:
+
+RQ4: Does the advice correctly adjust to the different golfer skill tiers?
+
+CaddySense should be able to provide beginner-friendly explanations for golfers who are just starting to pick up the sport. On the other hand, the system should be able to give more advanced recommendations for players who are more experienced.  This question targets whether the system can adjust the tone and the complexity correctly.
+
+The last question focuses on the transparency and how the AI behaves:
+
+RQ5: Does the system maintain transparency when the data is missing metrics or inconsistent?
+
+Instead of guessing the missing information, the tool should acknowledge the data as missing and then adjust the reasoning accordingly. 
+
+All of these research questions point to the measurable strategies discussed in later sections of this chapter.
+
+### Experimental Environment and Execution Context
+
+All experimental evaluations were conducted in the same computing environment used in the CaddySense prototype. The system runs fully through local execution and does not require cloud-based services or APIs. This also included a standard consumer-grade computer that is capable of running lighter-weight database operations and local LLMs. The use of local running was intentional and aligns with the design principles described in Chapter 3. By conducting experiments with an offline environment, the results made sure that no external data was transferred during the testing process. This is further explained by Figure 4, and this prevented user privacy and also kept interference from other external network conditions. 
+
+Another key advantage of the local execution was pre-producibility. Since the experiments were conducted on a single controlled system build, the AI interface remained consistent across many runs. This made it possible to see the outcomes and recreate scenarios without introducing variability from service updates or external infrastructure changes. The environment also left out real-time sensor integration. While more modern sports analytics systems often rely on wearable devices or motion sensors, the goal of this study was to evaluate the behavior of the AI coaching system rather than to integrate real-time data. This allowed for all input metrics to be supplied manually through simulated profiles. The nature of this testing allowed the researchers to observe only the behavior of the system’s reasoning components and, therefore, evaluate them under a condition in which they are not affected by anything else, making it reproducible.
+
+![Illustrates the full local experimental execution, showing how data flows through the system without reliance on external services.](images/flowchart.png)
+
+### Synthetic Golfer Profile Construction
+
+Since no human subjects were involved in the evaluation, synthetic golfer profiles were used to simulate different performance conditions. Each profile represented a fictional recreational golfer with a specific set of performance metrics. This approach allowed the experiments to explore a wider range of scenarios while maintaining full control over the data used and entered.
+
+Synthetic profiles were designed to represent several of the most common categories of golfers. The first category comprises a beginner player characterized by a high handicap, a low percentage of greens in regulation, and inconsistent putting performance. The second category represents a more intermediate player that has a higher level of consistency, but noticeable weakness in specific skill areas such as iron accuracy or control of distance. 
+
+A third category resembles that of an advanced golfer with a low handicap, but small inefficiencies in some areas. With these profiles in mind, additional profiles were created to explore more unusual patterns in players. These are made up of golfers who show strong driving distances but low accuracy, and are designed for players whose metrics vary across sessions of play. Another type of profiles created are targeted for missing metrics of one or more areas.
+
+Lastly, some more extreme cases were created to provide another perspective on how the system handled outliers in performance metrics. These are technically possible, but are a far reach from the average recreational golfer.
+
+The use of synthetic data presents a lot of methodological advantages. This data approach makes the evaluation able to only look at certain variables at one time, to make sure that the same scenarios could be seen multiple times, and ethical concerns would therefore be taken away from the collection of personal data. Even though synthetic data cannot fully replicate real-world behavior, it provided an environment for testing and allowed an examination of CaddySense's internal logic.
+
+Table: Shows the synthetic golfer profiles used for evaluation across different skill level and other performance characteristics.
+
+| Profile Type             | Handicap | Driving Distance | GIR (%)| Putts per Hole | Approach Accuracy (%)| Key Characteristics                          |
+|--------------------------|----------|------------------|--------|----------------|----------------------|----------------------------------------------|
+| Beginner                 | 22       | 210              | 35     | 2.4            | 45                   | Inconsistent, weak short game                |
+| Intermediate             | 12       | 240              | 55     | 2.0            | 60                   | Balanced but inconsistent                    |
+| Advanced Recreational    | 4        | 260              | 68     | 1.8            | 72                   | Efficient, small weaknesses                  |
+| Distance-Dominant        | 10       | 290              | 48     | 2.1            | 50                   | Long but inaccurate                          |
+| High Variance            | 14       | 250              | 60     | 2.5            | 65                   | Inconsistent across sessions                 |
+| Missing Data             | 16       | 235              | N/A    | 2.2            | 58                   | Incomplete performance metrics               |
+| Outlier Metrics          | 8        | 310              | 75     | 1.6            | 80                   | High but realistic golfer performance        |
+
+### Evaluation Metrics and Success Points
+
+To process the behavior of the CaddySense tool, many metrics were given meaning before the experimental phase. Providing these metric parameters in advance helped reduce the risk of bias and ensured that evaluation results could be interpreted well.
+
+The first metric tested was consistency rate, which shows the percentage of repeated evaluations that produced the same classifications. Since the rule-based layers are designed to be deterministic, the expected threshold for this specific metric was consistent 100 percent of the time. The next measured metric was the grounding rate, which measured the proportion of AI-generated outputs that reference at least one of the user performance metrics when it provides advice to the golfer. The success rate for this test was around 90 percent or higher. 
+
+The third area of evaluation was the adherence rate for the system's practice plan generation portion. This measured whether the generated plans stayed within the boundaries that were provided in advance. This included a maximum daily proactive time of two hours, a limit on the number of drills given to the user per day, and, lastly, a total word count from the system itself. Additional metrics examined and tested included skill-tier adaptation, transparency when data were missing or incomplete, and incidents in which the system generated unsupported advice that did not make sense to the user. All in all, these metrics provided a comprehensive analysis of the reliability, interpretability, and overall safety of CaddySense.
+
+Table: Defines the evaluation and predefined thresholds that were used to look into system performance.
+
+| Metric Name                    | Description                                           | Success Threshold |
+|--------------------------------|-------------------------------------------------------|-------------------|
+| Consistency Rate               | % of identical outputs across repeated runs           | 100%              |
+| Metric Grounding Rate          | % of responses referencing performance metrics        | ≥ 85%             |
+| Rule Meeting Rate              | % of outputs meeting all defined rules                | ≥ 90%             |
+| Skill-level Adaptation         | Degree of correct feedback adjustment                 | ≥ 85%             |
+| Transparency Compliance Rate   | % of responses acknowledging missing/vague data       | ≥ 90%             |
+| Vague Output Incidence Rate    | % of unsupported or assumption claims                 | ≤ 5%              |
+
+## System-Level Evaluation Results
+
+### Deterministic Rule-Based Performance
+
+The first component evaluated in this phase was the deterministic rule-based layer. This layer uses threshold conditions to identify weaknesses and assign skill tiers to categories, while it is also expected to produce the same outputs whenever identical inputs are given to the system. Across the scenarios, the system showed perfect reproducibility. Each of the simulated golfer profiles produced the same weakness points and skill-tier assignments when evaluated many times. There was no variation in classification results seen during the study. This outcome confirms that the rule-based layer behaves as expected and provides a strong foundation for the hybrid AI reasoning process. The results that were demonstrated produced a 100% deterministic rate for all test cases. 
+
+Each of the cases repeated and produced the same outputs for the following areas: 
+
+- Skill-tier classification 
+- Identified performance weakness
+- Metric threshold interpretations 
+- Structured summary data given to the AI coach
+
+Since the analytical layer relies heavily on fixed-rule logic rather than probabilistic computing, this was the expected result. Deterministic systems produce the same output for identical inputs. This consistency plays an important role in responsible computing systems that support decision-making or provide recommendations to users. When a user receives advice from a system, they must be able to trust that the same inputs will produce outputs that contradict each other. Adding on to consistency testing, the experiments evaluated the detection of weakness reliability. Each synthetic golfer profile was intentionally designed to highlight these performance deficiencies. 
+
+For example: 
+
+- Profiles made for beginner players take on a not-so-good greens-in-regulation percentage.
+- Distance-heavy profiles showed lower accuracy on fairways.
+- Higher inconsistency profiles show inconsistent putting metrics
+
+The analytical layer correctly identified these intended weaknesses across all profiles, indicating that the rules were functioning exactly as designed. On the other hand, the nature of the overall system showed specific limitations. In a few cases, metrics that were very close to the threshold boundaries produced classifications that appeared surprising or overly harsh. For example, if a player had a fairway accuracy of 49%, they might select different weakness classifications than 50% would. This occurs even though there is only a slight difference between these two values. 
+
+This illustrates a common pattern in these rule-based systems. Even though thresholds enhance interpretability and reproducibility, they also reduce sensitivity to performance differences. Looking ahead at future system designs, additional techniques could be implemented, such as weighted scoring systems or confidence intervals, to help prevent these boundary events while maintaining interpretability. As you can see from Figure 5 below, the analytics layer performed as expected and successfully evaluated the predefined rules for consistency and reliability. 
+
+![Shows that deterministic classification results stayed consistent across all repeated runs.](images/skilltierchart.png){width=75%}
+
+### Metric Grounding and Explanation
+
+A core goal of CaddySense is to ensure that AI-generated advice is grounded, meaning it provides measurable performance metrics rather than generic advice that can be found anywhere. To evaluate this, the experiments looked at the Metric Grounding Rate. This is defined as the percentage of system responses that clearly reference one or more performance metrics when the system is outputting recommendations. Across all test cases, the tool achieved a metric grounding rate of exactly 91%, exceeding the predetermined mark of 85%.
+
+In the responses, the AI coaching model references specific metrics such as:
+
+- Fairway accuracy percentage
+- Greens-in-regulation percentage
+- Putts per round
+
+For example, a well-produced recommendation that was given to the user during testing included a response such as: “Your greens-in-regulation percentage is significantly below the expected range for your skill level. Improving approach shot accuracy could likely reduce your reliance on shots used to recover and would ultimately improve your overall scoring consistency.” This type of response shows that there is clear usage of measurable performance data and suggests an area to focus training on. Since the percentage was less than 100, there were a small number of responses that produced a weaker grounding. In these cases, the AI coach produced vague advice and did not specifically reference a metric in the player's profile. For example: “Practicing short-game consistency can help lower scores.” While this advice is not incorrect, it lacks the metric justification that the system is built to connect to. 
+
+These weaker responses proved that they were most commonly happening in places where there were multiple metrics that were below the threshold, but none were really beating out the others. In these situations, the AI coach, in a few cases, generalized the recommendation instead of selecting a single metric to focus on for the response. In order to address this, there were some slight adjustments made to encourage the specific metrics when this scenario is in effect. After the refinement, the number of these ungrounded responses decreased greatly. This highlights an important note when it comes to the generative AI system. Even though they are capable of giving a good-sounding explanation, their understanding of structured data has to be actively backed up through the prompt design rules and evaluation. Further explained in Figure 6, the metric grounding performance of the system was strong for the most part, showing that the integration of this structured analysis while using generative feedback can produce transparent and data-backed coaching advice.
+
+![Shows the proportion of AI responses that reference performance metrics against those who did not.](images/pielol.png){width=75%}
+
+Table: Summary of how frequently AI-generated responses directly referenced the structured performance metrics.
+
+| Profile Type           | Total Responses| Grounded Responses | Grounding Rate (%) | Notes                          |
+|------------------------|----------------|--------------------|--------------------|--------------------------------|
+| Beginner               | 10             | 9                  | 90%                | Minor generalization           |
+| Intermediate           | 10             | 9                  | 90%                | Strong metric references       |
+| Advanced               | 10             | 10                 | 100%               | Highly specific advice         |
+| Distance-Heavy         | 10             | 9                  | 90%                | Clear explanation in difference|
+| High Variety           | 10             | 8                  | 80%                | Some generalized advice        |
+| Missing Data           | 10             | 9                  | 90%                | Transparent limitations        |
+| Outlier Metrics        | 10             | 10                 | 100%               | Strong grounding               |
+
+### Constraint Adherence and Practice Plan Boundaries
+
+Another major objective that was thoroughly tested in this process was to verify that CaddySense follows predefined constraints that make up the structure of the generated practice plans. These rules were implemented to ensure that the recommendations stayed realistic, safe, and created a realistic training condition for the user.
+
+Three of the categories that were tested include:
+
+- Daily practice time limits are maxed at two hours per day of training 
+- Maximum word count limits for the generated plans themselves to hold the attention of the user
+- Consistent drill structure and overall time dedicated
+
+Through all of the runs of evaluation, the system showed a strong adherence rate of 96%, which also exceeds the goal previously set at 90%. The most consistently enforced rule was the daily time limit. In all of the generated practice plans, the total practice plan time always stayed within the time limit of two hours. 
+
+The drill structure was also very high. Most of the practice plans generated show:
+
+- Warm-up drills and exercises
+- Two or three targeted skill drills unique to the user
+- Time to reflect and allow for relaxation to prevent injury 
+
+Each of the drills was given to the user with an amount of time that should be spent on each thing, making sure that the system emphasizes the rules given during the practice plan generation. The smaller number of rules that were not followed during testing was only related to the word count limits. In a few of the test cases, the AI coach gave responses that were slightly too long for the target length, with the reason being additional feedback that was not necessary to the proactive plan itself. Although these violations were insignificant, they highlight a key detail when it comes to generative model advice structure. More rules were given to the predetermined rules in order to prevent the system from making this small mistake with the word count in future practice plan generations. Lastly, these results shown in Figure 7 below conclude that constraint mechanisms were successful in following the rules and producing practical outputs. This is essential for responsible AI-assisted coaching systems and tools. 
+
+![Illustrates the adherence rates comparing different output constraints, showing strong results with structured generation rules.](images/constrainttype1.png){width=75%}
+
+### Skill-Tier Adaptation Analysis
+
+CaddySense was further evaluated for its ability to change the feedback correctly based on specific golfer skill tiers. This is an important attribute to have as advice that is designed for beginner golfers might be useless, or mocking to those of an advanced or intermediate player. To test this ability, advice was created for the three main profiles: beginner, intermediate, and advanced, and they were compared by the following features:
+
+- Terminology complexity 
+- Instructions specifics
+- Strategic depth
+
+To start, looking at beginner profiles, the responses were built around more fundamental concepts, and tried to avoid more technical confusing terminology. For example, feedback mostly focused on developing consistent contact and basic alignment habits. The feedback practice routines also followed these same steps. For intermediate profiles, they received more recommendations that were more structured, and often referenced more specific skill development and emphasized more consistent training. The advanced profile got the most detailed advice, which included more discussions of performance gains and focused on efficiency improvements. All in all, the skill tier adaptation evaluation also exceeded expectations, which means that the system overall was more successful at adjusting its feedback for certain skill levels. As always, also shown in Figure 8, a small number of the responses are a little over adjustment, where the feedback for the advanced players would be too technical and would be confusing for the user and their specific range of skill. Despite this, the overall results show that the system is capable of tailoring feedback in a manner that lines up with the experience that is intended. Further explanations for the difference in golfer skill levels can be see in Figure 9.
+
+![Shows the overall system performance across all the evaluation metrics, showing great success to the predetermined goals.](images/metricpercentage.png){width=75%}
+
+Table: Presents a further visual looking at the results compared against predefined success thresholds.
+
+| Metric                       | Observed Value| Threshold| Passed (Yes/No) |
+|------------------------------|---------------|----------|-----------------|
+| Deterministic Consistency    | 100%          | 100%     | Yes             |
+| Metric Grounding             | 91%           | 85%      | Yes             |
+| Constraint Adherence         | 96%           | 90%      | Yes             |
+| Skill-Tier Adaptation        | 88%           | 85%      | Yes             |
+| Transparency Compliance      | 94%           | 90%      | Yes             |
+| Assumption Rate              | 2%            | ≤ 5%     | Yes             |
+
+![Compares advice complexity across skill levels, showing the system's ability to change explanation depth and adjust terminology.](images/bubble.png){width=50%}
+
+### Response to Missing Data
+
+The last and final evaluation area looked at how the system responds to incomplete or vague data. In realistic cases, performance data may not always be complete or perfectly reliable. To simulate these conditions to the best of their ability, many synthetic profiles were designed with:
+
+- Missing performance metrics
+- Outliers, but possible values 
+- High differences across metrics
+
+The main metric evaluated in this scenario was the Transparency Compliance Rate, which is defined by measuring whether CaddySense clearly communicates when it lacks the amount of data needed to give the user a fully confident recommendation. The system again gave a strong transparency acting throughout all of these scenarios. In the test cases where data was missing, the AI coach did acknowledge the limitation and framed its recommendations carefully. For example, the responses included responses like: “Since your approach accuracy is unavailable, this recommendation is based primarily on approach shot performance metrics.”
+
+This evaluation also monitored the Incidence Rate of Unsupported Claims. This is the rate at which the system gave unsupported claims about performance metrics without having a reason behind it. When looking into all of the test cases, the incidence rate was very low, and it stands well underneath the hypothesized threshold. These findings, as seen in figure 10, suggest to the user that the system demonstrates a low enough rate of these incidences, proving to the user that there is trust in the system when there is incomplete data, instead of making up and assuming their skill level before providing them with feedback.
+
+![Shows how transparency is kept across different levels of data completeness, showing how the system handles uncertainty.](images/typeha1.png){width=75%}
+
+## Trade-Off Analysis and System Behavior Insights
+
+Table: Summary of the key design trade-offs found during experimental evaluation.
+
+| Trade-Off Category              | Benefit                       | Limitation               | Implication                         |
+|---------------------------------|-------------------------------|--------------------------|-------------------------------------|
+| Interpretability vs Flexibility | Clear, explainable decisions  | Limited appearance       | Strong for trust, weaker complexity |
+| Constraint vs Generative Depth  | Safe, structured outputs      | Reduced creativity       | Better for user experience          |
+| Privacy vs Scalability          | Full data control             | Limited deployment       | Strong ethical support              |
+| Synthetic vs Real-World Data    | Control and reproducibility   | Limited generalizability | Requires future field validation    |
+
+Even though the evaluation results showed a positive trend in system performance, the experiments also provided many important trade-offs that are present in the design of the system. These trade-offs show border impacts and other sights that are often seen in AI system design, particularly when including flexibility, privacy, and interpretability. 
+
+### Interpretability vs Flexibility
+
+One of the most stand-out design trade-offs includes the balance between interpretability and flexibility. The rule-based layer described before offers a higher level of interpretability because it has decisions that are derived from certain threshold rules. The users can understand why a certain classification or recommendation was produced. On the other hand, this transparency comes with the cost of flexibility. Rule-based systems like this one cannot capture contextual variations or performance relationships easily. While systems that contain generative AI components provide flexibility in description, the layer of analytics remains purely deterministic in order to maintain transparency.
+
+### Constraint Control vs Generative Depth
+
+Another sight of trade-offs comes up between looking into constraint control and the capabilities of the generation of the large language models. Strict contaminants make sure that the outputs remain following the rules and are practical and safe. However, these constraints can also limit the variability, and the creative taste is not careful when obtaining generative feedback. In the sense of a coaching assistant like CaddySense, this trade-off is leaning in the direction of beneficial. Well-built outputs are helpful when keeping a clear and stay away from overwhelming the users with complicated recommendations.
+
+### Privacy Preservation vs System Scalability 
+
+This system’s local-only design provides a strong point for privacy protections. All of the computations occur locally, and therefore, there is no personal data taken and put into external servers. On the other hand, these choices give the system potential limitations. Larger-scale deployments or real-time evaluations may need more infrastructure. Otherwise, the privacy is able to benefit and align strongly with the principles of responsible computing.
+
+### Synthetic Control vs Real-World Generalizability 
+
+Synthetic profiles provide a large amount of experimental control and reproducibility. However, it also lowers the ability to generalize the findings to realistic user populations. Future work includes looking into a more field-testing idea with actual users in order to further evaluate the system performance in a more natural setting.
+
+## Responsible Computing Validation
+
+These principles were included throughout the design and evaluation processes. This section describes how the system performed in relation to those principles. 
+
+### Privacy and Data Governance in Experiment Context
+
+Evaluation that was backed up by the system showed a consistent privacy protection during the testing cases. All of the tests were conducted locally, and none of the data was sent to external servers. CaddySense does not rely at all on cloud-based models, and all of the performance data remained confidential and kept to the local execution environment. This design ensures that the sensitive performance information is not exposed to outside parties or services.
+
+### Bias and Fairness Review
+
+The tests conducted and the results reviewed considered potential bias in CaddySense’s analytics and advice models. Since the system uses more structured rules rather than variables that are more set, it avoids many of the common sources of bias. Skill-level classifications are built only on measurable performance metrics and indicators. It is still possible for some bias to come up if the values reflect some guessed patterns around elite performance levels. To avoid this risk of bias, the rules were adjusted for a more level playing field for recreational players compared to assuming “elite” level players are of a professional status. 
+
+### Transparency and User Validation
+
+Transparency has always been a primary goal for CaddySense. Throughout the evaluation process, the AI coaching model gave consistent explanations that always connected back to measurable metrics and clearly demonstrated questions when the data was missing or incomplete. To add, the system does not give recommendations as something that needs to be in order to improve, it instead gives the advice only as a suggestion that users may use to change their own preferences and training plans. This specific design favors user experience and also encourages for engagement with the system’s advice and recommendations.
+
+## Threats to Validation
+
+Even though the experimental process and design were carefully created, there are still some threats to validity that come up.
+
+### Internal Validation Threats
+
+Internal threats to validation usually come from the use of synthetic data and testing environments. Even though synthetic profiles are good for reproducible evaluation, they might not be able to capture the full complexity of real instances of performance variability. Some evaluation metrics as well include further interpretation by the evaluator themself, which could bring up potential bias. 
+
+### External Validation Threats
+
+The external validity is limited since the evaluation did not involve actual golfers or their data in a field testing sense. As a result of this, the findings mainly show the overall system behavior when running the controlled conditions instead of real-world coaching advice effectiveness. Future looks into further testing would involve user testing and a more methodical performance tracking.
+
+### Construct Validity Threats
+
+Construct validity includes a rise in the measurement of concepts like explanation quality and transparency. Even though evaluation metrics were defined, some of the assessments still rely on judgment. Including external coaching experts as evaluators would theoretically raise construct validity in a future work model.
+
+### Scope and Research Limitations
+
+Lastly, the overall scope of this research leaves out some areas that could be potentially researched in studies in the future. Currently, the system does not try to make predictions of performance outcomes or skill improvements. Also, the evaluation does not measure changes in behavior which results from the recommendations from CaddySense. These specific limitations are a reflection of the focus of the study and its behavior, instead of real-world outcomes in performance.
+
+## Summary of Experimental Findings
+
+This chapter overall went through all of the experimental evaluation of the CaddySense system. The results demonstrate that the system acts consistently and transparently under the specified testing environments. 
+
+Key findings include: 
+
+- Deterministic reliability of the rule-based layer
+- High metric grounding rate in AI-generated explanations
+- Strong adherence to structured output constraints
+- Effective adaptation of advice to golfer skill levels
+- Accurate behavior when encountering incomplete or vague data
+
+At the same time, experimental results showed that there are many important design trade-offs between flexibility and interpretability, generative depth and constraint contents, and privacy against scalability. The evaluation also proved that CaddySense handled many computing principles well, including privacy protection, user experience, and transparency. Although the results are hopeful, the study still has some limitations because of its reliance on synthetic test profiles and controlled experimental conditions. Future work should focus on exploring more real-world scenarios and using real golfers for their own specific evaluations. The findings that were shown in this chapter show a strong foundation for the more in-depth discussion about the conclusion that will be further explored in the next chapter. 

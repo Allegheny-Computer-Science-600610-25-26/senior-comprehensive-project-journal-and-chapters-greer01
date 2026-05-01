@@ -1,0 +1,175 @@
+---
+title: "Activity Fourth post"
+date: "2026-02-05"
+---
+
+Outline and Justifications for Chapter Three: Methods
+
+Title: Chapter Three: Methods
+
+3.1 Chapter Overview and Methodological Goals
+
+- Explains the purpose of the methods chapter
+- Describes how this chapter translates from Chapter 2 into implementation
+- Overview on how the system-level methodology is used to design, build, and evaluate CaddySense
+
+- Gives a high-level summary of: 
+a. Data Handling approach
+b. AI model selection
+c. System Architecture
+d. Ethical Safeguards
+
+3.2 System Architecture and Infrastructure
+
+3.2.1 Overall System Design
+
+- Giving a description of CaddySense as a modular AI- assisted coaching system
+- High-level workflow from user input to AI-generated feedback
+- A separation of concerns:
+a. Data Storage Layer
+b. AI reasoning layer
+c. User interaction layer
+
+Figure 3.1 High level CaddySense system architecture diagram
+
+3.2.2 Local Infrastructure and Environment
+
+- Gives a description of the computing and environments used.
+a. Local Execution (non-cloud)
+b. Hardware assumption (consumer-level)
+
+- Rationale for avoiding cloud-based deployment
+a. Privacy
+b. Accessibility
+c. Cost control
+
+3.2.3 Tools and Technologies Used
+- Mention Programming languages
+- The libraries and frameworks
+- All of the supporting tools
+a. SQLite (local database)
+b. Local LLM inference (O)
+c. Data processing libraries
+
+(Table 3.1: Tool and technologies used in CaddySense)
+
+3.3 Data Collection and Representation
+
+3.3.1 Golf Performance Metrics Used
+
+- Explanation of the selected metrics I used
+a. Driving Distance
+b. Greens in Regulation (GIR)
+c. Putting Consistency
+d. Approach shot proximity
+
+- Why these metrics are: 
+a. Measurable
+b. Interpretable
+c. Relevant to recreational golfers
+
+(Brief terms explanations included here to further explain jargon)
+
+3.3.2 Data Structuring and Storage
+
+- Include a scheme for local SQLite database
+- How user data is stored, updated, and retrieved
+- Justify the reason for structured data vs raw sensor streams
+
+Figure 3.2 Database scheme diagram
+
+3.3.3 Data Preprocessing Pipeline 
+- Cleaning and normalization steps
+- Handling missing or inconsistent data
+- Scaling metrics for AI interpretation
+
+(Image 3.1 Data preprocessing workflow)
+
+3.4 AI Model Selection and Reasoning Strategy
+
+3.4.1 Choice of AI 
+- Reasoning for combining
+a. structured numerical metrics
+b. Conversational AI reasoning
+
+- Why purely predictive models were insufficient
+- Why just the language-based models were insufficient
+
+3.4.2 Conversational AI Integration
+- Explain the role of large language models in:
+a. Interpretation
+b. Explanation
+c. Personalized feedback generation
+
+- Use of local LLM interface
+- Prompt structure and reasoning constraints
+
+(Figure 3.3 Flow of conversational reasoning in CaddySense)
+
+3.4.3 Metric-Guided Feedback Generation
+- How the numerical performance metrics guide AI output
+- Anchoring responses to measurable data
+- Preventing hallucinated or unsupported advice
+
+(Image 3.2 Metric-conditioned response generation)
+
+3.5 User interaction and Feedback Loop
+
+2.5.1 Interaction Design Principles
+- Conversational over dashboard-driven interaction
+- User initiated questioning
+- Progressive disclosure of detail
+
+3.5.2 Feedback Iteration Cycle
+- How user data updates influence future recommendations
+- Short term vs long term improvement logic
+- Reinforcement through explanation rather than prescription
+
+(Figure 3.4 User Feedback loop diagram)
+
+3.6 Experimental Design and Testing Procedures
+
+3.6.1 Functional Testing
+- Validation of:
+a. Data Ingestion
+b. Metric calculation
+c. AI response consistency
+
+- Edge-case testing (missing data extreme values)
+
+3.6.2 Scenario-Based Evaluation
+- Simulated golfer profiles: 
+a. Beginner
+b. Intermediate
+c. Advanced recreational
+
+- Expected system behavior per scenario
+
+(Table 3.2 Test scenarios and expected outcomes)
+
+3.7 Ethical Considerations and Mitigation Strategies 
+
+3.7.1 Data Privacy and Ownership 
+- Local only  data storage 
+- USer control over data lifecycle
+- no third party data sharing 
+
+3.7.2 Bias and Accessibility
+- Avoidance of elite athlete bias 
+- Design the recreational golfers 
+- Hardware-agnostic approach
+
+3.7.3 Transparency and Explanations 
+- explicit explanation and recommendations 
+- Allowing users to questions AI outputs
+- Avoidance of vague scoring systems
+
+(Table 3.3: Ethical risks and mitigation strategies)
+
+3.8 Summary of Methodological Contributions
+- Recap of how the methodology: 
+a. Supports personalization
+b. Enables trust
+c. Maintains ethical integrity
+
+- Transition statement into Chapter 4 (Results / Evaluation)
